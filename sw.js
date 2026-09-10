@@ -3,7 +3,7 @@
    SERVICE WORKER - PWA
    ========================================================= */
 
-const CACHE_NAME = "linaje-de-reyes-v2";
+const CACHE_NAME = "linaje-de-reyes-v3";
 
 const ASSETS = [
     "./",
@@ -17,7 +17,8 @@ const ASSETS = [
     "./script.js",
     "./catalogo.js",
     "./producto.js",
-    "./manifest.json"
+    "./manifest.json",
+    "./logo.png"
 ];
 
 /* Instalación */
@@ -49,9 +50,7 @@ self.addEventListener("fetch", event => {
 
     /* Ignorar peticiones externas (Google Fonts, QR API, etc) */
     const url = new URL(event.request.url);
-    if (url.origin !== location.origin) {
-        return;
-    }
+    if (url.origin !== location.origin) return;
 
     event.respondWith(
         caches.match(event.request)

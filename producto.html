@@ -5,54 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Producto | LINAJE DE REYES</title>
-
     <meta name="description" content="Conoce los productos de LINAJE DE REYES, tradición y sabor con más de 20 años de historia.">
 
     <!-- SEO -->
     <meta name="robots" content="index, follow">
     <meta name="language" content="Spanish">
-    <meta property="og:title" content="LINAJE DE REYES | Panadería & Pastelería">
+    <meta name="author" content="LINAJE DE REYES">
+    <meta property="og:title" content="Producto | LINAJE DE REYES">
     <meta property="og:description" content="Una tradición que nació en el Callao. Más de 20 años de historia.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tusitio.com/producto.html">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://richi2002.github.io/linaje-de-reyes/producto.html">
+    <meta property="og:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://tusitio.com/producto.html">
+    <link rel="canonical" href="https://richi2002.github.io/linaje-de-reyes/producto.html">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="./logo.png">
+    <link rel="apple-touch-icon" href="./logo.png">
 
     <!-- PWA -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#172536">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="LINAJE DE REYES">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="producto.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./producto.css">
 </head>
 
 <body>
 
 <header class="header">
     <div class="container nav-container">
-
-        <a href="index.html" class="logo">
-            <span class="logo-icon">🥖</span>
+        <a href="./index.html" class="logo" aria-label="LINAJE DE REYES - Inicio">
+            <img src="./logo.png" alt="Logo LINAJE DE REYES" class="logo-img" width="48" height="48">
             <span class="logo-text">
                 <strong>LINAJE DE REYES</strong>
                 <small>DESDE EL CALLAO</small>
             </span>
         </a>
 
-        <nav class="nav" id="productoNav">
-            <a href="index.html">Inicio</a>
-            <a href="catalogo.html">Productos</a>
-            <a href="index.html#historia">Nuestra historia</a>
-            <a href="index.html#nosotros">¿Por qué LINAJE DE REYES?</a>
-            <a href="index.html#contacto">Contacto</a>
-            <a href="index.html#pedido" class="nav-order">Hacer pedido</a>
+        <nav class="nav" id="productoNav" aria-label="Navegación principal">
+            <a href="./index.html">Inicio</a>
+            <a href="./catalogo.html">Productos</a>
+            <a href="./index.html#historia">Nuestra historia</a>
+            <a href="./index.html#nosotros">¿Por qué LINAJE DE REYES?</a>
+            <a href="./index.html#contacto">Contacto</a>
+            <a href="./index.html#pedido" class="nav-order">Hacer pedido</a>
         </nav>
 
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
@@ -60,28 +61,23 @@
         </button>
 
         <button class="menu-btn" id="productoMenuBtn" aria-label="Abrir menú" type="button">☰</button>
-
     </div>
 </header>
 
-
 <main>
-
     <section class="product-breadcrumb">
         <div class="container">
-            <a href="index.html">Inicio</a>
+            <a href="./index.html">Inicio</a>
             <span>›</span>
-            <a href="catalogo.html">Catálogo</a>
+            <a href="./catalogo.html">Catálogo</a>
             <span>›</span>
             <span id="breadcrumbProduct">Producto</span>
         </div>
     </section>
 
-
     <section class="product-detail">
         <div class="container">
             <div class="product-layout">
-
                 <div class="product-image-area">
                     <div class="product-image">
                         <span class="product-category" id="productCategory">PANADERÍA</span>
@@ -93,16 +89,12 @@
                     </div>
                 </div>
 
-
                 <div class="product-info">
-
                     <span class="product-eyebrow">LINAJE DE REYES · MÁS DE 20 AÑOS</span>
-
                     <h1 id="productName">Pan Francés</h1>
 
                     <div class="product-price">
-                        S/
-                        <span id="productPrice">0.50</span>
+                        S/ <span id="productPrice">0.50</span>
                     </div>
 
                     <div class="product-divider"></div>
@@ -115,24 +107,15 @@
                     <div class="product-features">
                         <div class="feature">
                             <span>✓</span>
-                            <div>
-                                <strong>Tradición</strong>
-                                <small>Más de 20 años de experiencia</small>
-                            </div>
+                            <div><strong>Tradición</strong><small>Más de 20 años de experiencia</small></div>
                         </div>
                         <div class="feature">
                             <span>✓</span>
-                            <div>
-                                <strong>Calidad</strong>
-                                <small>Elaboración con dedicación</small>
-                            </div>
+                            <div><strong>Calidad</strong><small>Elaboración con dedicación</small></div>
                         </div>
                         <div class="feature">
                             <span>✓</span>
-                            <div>
-                                <strong>Sabor</strong>
-                                <small>El sabor de siempre</small>
-                            </div>
+                            <div><strong>Sabor</strong><small>El sabor de siempre</small></div>
                         </div>
                     </div>
 
@@ -147,20 +130,17 @@
 
                     <div class="product-actions">
                         <button type="button" class="btn btn-primary" id="addProductBtn">Agregar al pedido</button>
-                        <a href="catalogo.html" class="btn btn-secondary">← Volver al catálogo</a>
+                        <a href="./catalogo.html" class="btn btn-secondary">← Volver al catálogo</a>
                     </div>
 
                     <div class="product-note">
                         <span>✦</span>
                         <p>Los productos y precios mostrados actualmente son referenciales y serán actualizados.</p>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </section>
-
 
     <section class="product-story">
         <div class="container">
@@ -178,18 +158,15 @@
             </div>
         </div>
     </section>
-
 </main>
 
-
 <div class="toast" id="toast" role="status" aria-live="polite">Producto agregado al pedido ✓</div>
-
 
 <footer class="footer">
     <div class="container footer-grid">
         <div class="footer-brand">
             <div class="logo footer-logo">
-                <span class="logo-icon">🥖</span>
+                <img src="./logo.png" alt="LINAJE DE REYES" class="logo-img" width="48" height="48">
                 <span class="logo-text">
                     <strong>LINAJE DE REYES</strong>
                     <small>DESDE EL CALLAO</small>
@@ -212,10 +189,10 @@
 
         <div class="footer-links">
             <h4>Explora</h4>
-            <a href="index.html">Inicio</a>
-            <a href="catalogo.html">Productos</a>
-            <a href="index.html#historia">Nuestra historia</a>
-            <a href="index.html#pedido">Hacer pedido</a>
+            <a href="./index.html">Inicio</a>
+            <a href="./catalogo.html">Productos</a>
+            <a href="./index.html#historia">Nuestra historia</a>
+            <a href="./index.html#pedido">Hacer pedido</a>
         </div>
 
         <div class="footer-links">
@@ -234,9 +211,8 @@
     </div>
 </footer>
 
-
-<script src="script.js"></script>
-<script src="producto.js"></script>
+<script src="./script.js"></script>
+<script src="./producto.js"></script>
 
 </body>
 </html>

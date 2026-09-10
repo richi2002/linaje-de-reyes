@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LINAJE DE REYES | Panadería & Pastelería</title>
-
+    <title>LINAJE DE REYES | Panadería & Pastelería en el Callao</title>
     <meta name="description" content="LINAJE DE REYES, panadería y pastelería con más de 20 años de historia. Una tradición que nació en el Callao.">
 
     <!-- SEO -->
     <meta name="robots" content="index, follow">
     <meta name="language" content="Spanish">
+    <meta name="author" content="LINAJE DE REYES">
     <meta property="og:title" content="LINAJE DE REYES | Panadería & Pastelería">
     <meta property="og:description" content="Una tradición que nació en el Callao. Más de 20 años de historia.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tusitio.com">
+    <meta property="og:url" content="https://richi2002.github.io/linaje-de-reyes/">
+    <meta property="og:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
+    <meta property="og:locale" content="es_PE">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://tusitio.com">
+    <meta name="twitter:title" content="LINAJE DE REYES | Panadería & Pastelería">
+    <meta name="twitter:description" content="Una tradición que nació en el Callao.">
+    <meta name="twitter:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
+    <link rel="canonical" href="https://richi2002.github.io/linaje-de-reyes/">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="./logo.png">
+    <link rel="apple-touch-icon" href="./logo.png">
 
     <!-- PWA -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#172536">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,29 +38,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
 <!-- ================= WHATSAPP FLOTANTE ================= -->
-<a href="https://wa.me/920898321" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-    💬
-</a>
+<a href="https://wa.me/920898321" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">💬</a>
 
 <!-- ================= HEADER ================= -->
 <header class="header" id="inicio">
     <div class="container nav-container">
-        <a href="#inicio" class="logo">
-            <span class="logo-icon">🥖</span>
+        <a href="./index.html" class="logo" aria-label="LINAJE DE REYES - Inicio">
+            <img src="./logo.png" alt="Logo LINAJE DE REYES" class="logo-img" width="48" height="48">
             <span class="logo-text">
                 <strong>LINAJE DE REYES</strong>
                 <small>DESDE EL CALLAO</small>
             </span>
         </a>
 
-        <nav class="nav" id="nav">
-            <a href="index.html">Inicio</a>
-            <a href="catalogo.html">Productos</a>
+        <nav class="nav" id="nav" aria-label="Navegación principal">
+            <a href="./index.html">Inicio</a>
+            <a href="./catalogo.html">Productos</a>
             <a href="#historia">Nuestra historia</a>
             <a href="#nosotros">¿Por qué LINAJE DE REYES?</a>
             <a href="#testimonios">Testimonios</a>
@@ -88,40 +95,28 @@
                 a cada pan, postre y torta que llega a tu mesa.
             </p>
             <div class="hero-buttons">
-                <a href="catalogo.html" class="btn btn-primary">
-                    Ver productos
-                    <span>→</span>
+                <a href="./catalogo.html" class="btn btn-primary">
+                    Ver productos <span>→</span>
                 </a>
                 <a href="#historia" class="btn btn-secondary">
                     Conocer nuestra historia
                 </a>
             </div>
             <div class="hero-stats">
-                <div>
-                    <strong>23</strong>
-                    <span>Años de historia</span>
-                </div>
-                <div>
-                    <strong>100%</strong>
-                    <span>Dedicación</span>
-                </div>
-                <div>
-                    <strong>♥</strong>
-                    <span>Sabor de siempre</span>
-                </div>
+                <div><strong>23</strong><span>Años de historia</span></div>
+                <div><strong>100%</strong><span>Dedicación</span></div>
+                <div><strong>♥</strong><span>Sabor de siempre</span></div>
             </div>
         </div>
 
         <div class="hero-art">
             <div class="hero-circle"></div>
-            <div class="bread-main">🥖</div>
+            <img src="./logo.png" alt="LINAJE DE REYES" class="hero-logo">
             <div class="hero-label label-top">
-                <span>✦</span>
-                Recién horneado
+                <span>✦</span> Recién horneado
             </div>
             <div class="hero-label label-bottom">
-                Hecho con dedicación
-                <span>♥</span>
+                Hecho con dedicación <span>♥</span>
             </div>
             <div class="hero-origin">
                 <small>NACIDA EN</small>
@@ -137,31 +132,19 @@
     <div class="container benefits-grid">
         <article class="benefit">
             <div class="benefit-icon">✦</div>
-            <div>
-                <h3>Tradición</h3>
-                <p>Más de dos décadas compartiendo nuestra pasión.</p>
-            </div>
+            <div><h3>Tradición</h3><p>Más de dos décadas compartiendo nuestra pasión.</p></div>
         </article>
         <article class="benefit">
             <div class="benefit-icon">◆</div>
-            <div>
-                <h3>Calidad</h3>
-                <p>Productos preparados con dedicación y cuidado.</p>
-            </div>
+            <div><h3>Calidad</h3><p>Productos preparados con dedicación y cuidado.</p></div>
         </article>
         <article class="benefit">
             <div class="benefit-icon">♡</div>
-            <div>
-                <h3>Pasión</h3>
-                <p>Nos gusta hacer las cosas bien, todos los días.</p>
-            </div>
+            <div><h3>Pasión</h3><p>Nos gusta hacer las cosas bien, todos los días.</p></div>
         </article>
         <article class="benefit">
             <div class="benefit-icon">⌂</div>
-            <div>
-                <h3>Cercanía</h3>
-                <p>Una marca que creció junto a sus clientes.</p>
-            </div>
+            <div><h3>Cercanía</h3><p>Una marca que creció junto a sus clientes.</p></div>
         </article>
     </div>
 </section>
@@ -172,10 +155,7 @@
         <div class="section-heading">
             <div>
                 <span class="section-eyebrow">NUESTROS FAVORITOS</span>
-                <h2>
-                    Algo rico siempre
-                    <em>te espera.</em>
-                </h2>
+                <h2>Algo rico siempre <em>te espera.</em></h2>
             </div>
             <p>
                 Descubre algunos de nuestros productos.
@@ -204,22 +184,20 @@
                     <p>Clásico, fresco y perfecto para acompañar cualquier momento del día.</p>
                     <div class="product-bottom">
                         <strong>S/ 0.50</strong>
-                        <button class="add-btn" onclick="agregarAlCarrito('Pan Francés', 0.50)">+</button>
+                        <button class="add-btn" onclick="agregarAlCarrito('Pan Francés', 0.50)" aria-label="Agregar Pan Francés">+</button>
                     </div>
                 </div>
             </article>
 
             <article class="product-card" data-category="panaderia">
-                <div class="product-image croissant-bg">
-                    <span>🥐</span>
-                </div>
+                <div class="product-image croissant-bg"><span>🥐</span></div>
                 <div class="product-info">
                     <span class="product-category">PANADERÍA</span>
                     <h3>Croissant</h3>
                     <p>Una opción delicada para comenzar el día con algo especial.</p>
                     <div class="product-bottom">
                         <strong>S/ 3.50</strong>
-                        <button class="add-btn" onclick="agregarAlCarrito('Croissant', 3.50)">+</button>
+                        <button class="add-btn" onclick="agregarAlCarrito('Croissant', 3.50)" aria-label="Agregar Croissant">+</button>
                     </div>
                 </div>
             </article>
@@ -235,37 +213,33 @@
                     <p>Una porción especial para darte ese gusto que mereces.</p>
                     <div class="product-bottom">
                         <strong>S/ 7.00</strong>
-                        <button class="add-btn" onclick="agregarAlCarrito('Porción de torta', 7.00)">+</button>
+                        <button class="add-btn" onclick="agregarAlCarrito('Porción de torta', 7.00)" aria-label="Agregar Porción de torta">+</button>
                     </div>
                 </div>
             </article>
 
             <article class="product-card" data-category="pasteleria">
-                <div class="product-image dessert-bg">
-                    <span>🍮</span>
-                </div>
+                <div class="product-image dessert-bg"><span>🍮</span></div>
                 <div class="product-info">
                     <span class="product-category">POSTRES</span>
                     <h3>Postres</h3>
                     <p>Pequeños momentos dulces para disfrutar y compartir.</p>
                     <div class="product-bottom">
                         <strong>S/ 5.00</strong>
-                        <button class="add-btn" onclick="agregarAlCarrito('Postres', 5.00)">+</button>
+                        <button class="add-btn" onclick="agregarAlCarrito('Postres', 5.00)" aria-label="Agregar Postres">+</button>
                     </div>
                 </div>
             </article>
 
             <article class="product-card" data-category="pasteleria">
-                <div class="product-image cookie-bg">
-                    <span>🍪</span>
-                </div>
+                <div class="product-image cookie-bg"><span>🍪</span></div>
                 <div class="product-info">
                     <span class="product-category">PASTELERÍA</span>
                     <h3>Galletas</h3>
                     <p>Dulces, sencillas y perfectas para acompañar tu café.</p>
                     <div class="product-bottom">
                         <strong>S/ 2.50</strong>
-                        <button class="add-btn" onclick="agregarAlCarrito('Galletas', 2.50)">+</button>
+                        <button class="add-btn" onclick="agregarAlCarrito('Galletas', 2.50)" aria-label="Agregar Galletas">+</button>
                     </div>
                 </div>
             </article>
@@ -281,7 +255,7 @@
                     <p>Una torta especial para celebrar tus momentos importantes.</p>
                     <div class="product-bottom">
                         <strong>Desde S/ 50</strong>
-                        <button class="add-btn" onclick="agregarAlCarrito('Torta personalizada', 50)">+</button>
+                        <button class="add-btn" onclick="agregarAlCarrito('Torta personalizada', 50)" aria-label="Agregar Torta personalizada">+</button>
                     </div>
                 </div>
             </article>
@@ -309,10 +283,7 @@
         </div>
         <div class="history-content">
             <span class="section-eyebrow">NUESTRA HISTORIA</span>
-            <h2>
-                Una tradición que
-                <em>nació en el Callao.</em>
-            </h2>
+            <h2>Una tradición que <em>nació en el Callao.</em></h2>
             <p class="history-lead">
                 LINAJE DE REYES nació en el Callao hace más de 20 años,
                 con el propósito de ofrecer productos de panadería
@@ -342,14 +313,8 @@
     <div class="container">
         <div class="center-heading">
             <span class="section-eyebrow">LO QUE NOS REPRESENTA</span>
-            <h2>
-                ¿Por qué elegir
-                <em>LINAJE DE REYES?</em>
-            </h2>
-            <p>
-                Porque detrás de cada producto existe una historia,
-                una tradición y muchas ganas de hacer las cosas bien.
-            </p>
+            <h2>¿Por qué elegir <em>LINAJE DE REYES?</em></h2>
+            <p>Porque detrás de cada producto existe una historia, una tradición y muchas ganas de hacer las cosas bien.</p>
         </div>
         <div class="why-grid">
             <article class="why-card">
@@ -385,10 +350,7 @@
     <div class="container">
         <div class="center-heading">
             <span class="section-eyebrow">TESTIMONIOS</span>
-            <h2>
-                Lo que dicen
-                <em>nuestros clientes.</em>
-            </h2>
+            <h2>Lo que dicen <em>nuestros clientes.</em></h2>
             <p>La confianza de nuestros clientes es nuestro mayor logro.</p>
         </div>
 
@@ -437,59 +399,38 @@
     <div class="container">
         <div class="center-heading">
             <span class="section-eyebrow">PREGUNTAS FRECUENTES</span>
-            <h2>
-                Resolvemos tus
-                <em>dudas.</em>
-            </h2>
+            <h2>Resolvemos tus <em>dudas.</em></h2>
             <p>Aquí encontrarás las respuestas a las preguntas más comunes.</p>
         </div>
 
         <div class="faq-grid">
             <details class="faq-item">
-                <summary>
-                    <span>¿Cuáles son los métodos de pago?</span>
-                    <span class="faq-icon">+</span>
-                </summary>
+                <summary><span>¿Cuáles son los métodos de pago?</span><span class="faq-icon">+</span></summary>
                 <p>Aceptamos <strong>efectivo, Yape, Plin y transferencia bancaria</strong>. Para tortas personalizadas solicitamos un adelanto del 50% para confirmar el pedido.</p>
             </details>
 
             <details class="faq-item">
-                <summary>
-                    <span>¿Hacen delivery?</span>
-                    <span class="faq-icon">+</span>
-                </summary>
+                <summary><span>¿Hacen delivery?</span><span class="faq-icon">+</span></summary>
                 <p>Sí, ofrecemos servicio de delivery dentro del Callao y zonas cercanas. El costo de envío se coordina por WhatsApp según la ubicación.</p>
             </details>
 
             <details class="faq-item">
-                <summary>
-                    <span>¿Cuánto tiempo tarda un pedido?</span>
-                    <span class="faq-icon">+</span>
-                </summary>
+                <summary><span>¿Cuánto tiempo tarda un pedido?</span><span class="faq-icon">+</span></summary>
                 <p>Los pedidos de panadería y pastelería son casi inmediatos. Las <strong>tortas personalizadas requieren 48 horas de anticipación</strong>.</p>
             </details>
 
             <details class="faq-item">
-                <summary>
-                    <span>¿Tienen productos sin gluten o aptos para diabéticos?</span>
-                    <span class="faq-icon">+</span>
-                </summary>
+                <summary><span>¿Tienen productos sin gluten o aptos para diabéticos?</span><span class="faq-icon">+</span></summary>
                 <p>Por el momento no contamos con línea específica sin gluten. Si tienes alguna necesidad especial, <strong>consúltanos por WhatsApp</strong> y veremos cómo podemos ayudarte.</p>
             </details>
 
             <details class="faq-item">
-                <summary>
-                    <span>¿Puedo personalizar mi torta?</span>
-                    <span class="faq-icon">+</span>
-                </summary>
+                <summary><span>¿Puedo personalizar mi torta?</span><span class="faq-icon">+</span></summary>
                 <p>¡Claro! Diseñamos tortas personalizadas para cumpleaños, bodas, bautizos y más. Envíanos tu idea por WhatsApp y te cotizamos sin compromiso.</p>
             </details>
 
             <details class="faq-item">
-                <summary>
-                    <span>¿Cuál es el pedido mínimo?</span>
-                    <span class="faq-icon">+</span>
-                </summary>
+                <summary><span>¿Cuál es el pedido mínimo?</span><span class="faq-icon">+</span></summary>
                 <p>El pedido mínimo para delivery es de <strong>S/ 10.00</strong>. Para recojo en tienda no hay mínimo.</p>
             </details>
         </div>
@@ -501,14 +442,8 @@
     <div class="container order-grid">
         <div class="order-intro">
             <span class="section-eyebrow">HAZ TU PEDIDO</span>
-            <h2>
-                Tu pedido,
-                <em>más fácil.</em>
-            </h2>
-            <p>
-                Agrega tus productos al carrito, completa tus datos
-                y prepara tu pedido para enviarlo por WhatsApp.
-            </p>
+            <h2>Tu pedido, <em>más fácil.</em></h2>
+            <p>Agrega tus productos al carrito, completa tus datos y prepara tu pedido para enviarlo por WhatsApp.</p>
             <div class="order-steps">
                 <div><strong>01</strong><span>Elige tus productos</span></div>
                 <div><strong>02</strong><span>Completa tus datos</span></div>
@@ -552,7 +487,6 @@
             </div>
 
             <form id="orderForm" onsubmit="enviarPedido(event)">
-
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nombre">Nombre completo *</label>
@@ -608,8 +542,7 @@
                 </div>
 
                 <button type="submit" class="btn whatsapp-btn">
-                    <span>◉</span>
-                    Enviar pedido por WhatsApp
+                    <span>◉</span> Enviar pedido por WhatsApp
                 </button>
             </form>
         </div>
@@ -622,15 +555,8 @@
         <div class="contact-grid">
             <div>
                 <span class="section-eyebrow">ENCUÉNTRANOS</span>
-                <h2>
-                    Sigamos
-                    <em>en contacto.</em>
-                </h2>
-                <p>
-                    Visítanos en nuestra tienda, escríbenos por WhatsApp
-                    o síguenos en nuestras redes sociales para conocer
-                    nuestras novedades y promociones.
-                </p>
+                <h2>Sigamos <em>en contacto.</em></h2>
+                <p>Visítanos en nuestra tienda, escríbenos por WhatsApp o síguenos en nuestras redes sociales para conocer nuestras novedades y promociones.</p>
 
                 <div class="schedule-box" id="scheduleBox">
                     <div class="schedule-status" id="scheduleStatus">
@@ -638,18 +564,9 @@
                         <strong>Verificando horario...</strong>
                     </div>
                     <div class="schedule-list">
-                        <div class="schedule-item">
-                            <span>Lunes a Viernes</span>
-                            <strong>6:00 AM - 9:00 PM</strong>
-                        </div>
-                        <div class="schedule-item">
-                            <span>Sábado</span>
-                            <strong>6:00 AM - 9:30 PM</strong>
-                        </div>
-                        <div class="schedule-item">
-                            <span>Domingo</span>
-                            <strong>7:00 AM - 8:00 PM</strong>
-                        </div>
+                        <div class="schedule-item"><span>Lunes a Viernes</span><strong>6:00 AM - 9:00 PM</strong></div>
+                        <div class="schedule-item"><span>Sábado</span><strong>6:00 AM - 9:30 PM</strong></div>
+                        <div class="schedule-item"><span>Domingo</span><strong>7:00 AM - 8:00 PM</strong></div>
                     </div>
                 </div>
             </div>
@@ -657,26 +574,15 @@
             <div class="contact-info">
                 <a href="https://wa.me/920898321" target="_blank" rel="noopener noreferrer" class="contact-item contact-link">
                     <span>◉</span>
-                    <div>
-                        <small>WHATSAPP</small>
-                        <strong>+51 920 898 321</strong>
-                    </div>
+                    <div><small>WHATSAPP</small><strong>+51 920 898 321</strong></div>
                 </a>
-
                 <div class="contact-item">
                     <span>📍</span>
-                    <div>
-                        <small>UBICACIÓN</small>
-                        <strong>Callao, Perú</strong>
-                    </div>
+                    <div><small>UBICACIÓN</small><strong>Callao, Perú</strong></div>
                 </div>
-
                 <div class="contact-item">
                     <span>◷</span>
-                    <div>
-                        <small>HORARIO</small>
-                        <strong>Lun-Sáb: 6AM - 9PM</strong>
-                    </div>
+                    <div><small>HORARIO</small><strong>Lun-Sáb: 6AM - 9PM</strong></div>
                 </div>
 
                 <div class="social-links">
@@ -702,14 +608,8 @@
         <div class="map-container">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.794854851784!2d-77.11821!3d-12.05691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDAzJzI0LjkiUyA3N8KwMDcnMDUuNiJX!5e0!3m2!1ses!2spe!4v1234567890"
-                width="100%"
-                height="380"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Ubicación LINAJE DE REYES"
-            ></iframe>
+                width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="Ubicación LINAJE DE REYES"></iframe>
         </div>
     </div>
 </section>
@@ -720,7 +620,7 @@
     <div class="container footer-grid">
         <div class="footer-brand">
             <div class="logo footer-logo">
-                <span class="logo-icon">🥖</span>
+                <img src="./logo.png" alt="LINAJE DE REYES" class="logo-img" width="48" height="48">
                 <span class="logo-text">
                     <strong>LINAJE DE REYES</strong>
                     <small>DESDE EL CALLAO</small>
@@ -768,10 +668,10 @@
 </footer>
 
 <!-- ================= MODAL DE PAGO YAPE/PLIN ================= -->
-<div id="paymentModal" class="product-modal">
+<div id="paymentModal" class="product-modal" aria-hidden="true">
     <div class="modal-overlay" onclick="cerrarModalPago()"></div>
     <div class="modal-content payment-modal-content">
-        <button class="modal-close" onclick="cerrarModalPago()">×</button>
+        <button class="modal-close" onclick="cerrarModalPago()" aria-label="Cerrar">×</button>
 
         <div class="payment-header">
             <span class="section-eyebrow">PAGA FÁCIL Y RÁPIDO</span>
@@ -781,7 +681,7 @@
 
         <div class="payment-qr-container">
             <div class="payment-qr">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=yape:920898321" alt="QR de pago" id="qrImage">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=yape:920898321" alt="QR de pago" id="qrImage" loading="lazy">
             </div>
         </div>
 
@@ -795,18 +695,9 @@
         </div>
 
         <div class="payment-info">
-            <div class="payment-detail">
-                <small>NÚMERO</small>
-                <strong>920 898 321</strong>
-            </div>
-            <div class="payment-detail">
-                <small>TITULAR</small>
-                <strong>LINAJE DE REYES</strong>
-            </div>
-            <div class="payment-detail">
-                <small>MONTO</small>
-                <strong id="paymentAmount">S/ 0.00</strong>
-            </div>
+            <div class="payment-detail"><small>NÚMERO</small><strong>920 898 321</strong></div>
+            <div class="payment-detail"><small>TITULAR</small><strong>LINAJE DE REYES</strong></div>
+            <div class="payment-detail"><small>MONTO</small><strong id="paymentAmount">S/ 0.00</strong></div>
         </div>
 
         <div class="payment-note">
@@ -821,15 +712,15 @@
 </div>
 
 <!-- ================= TOAST ================= -->
-<div id="toast" class="toast">Producto agregado al carrito</div>
+<div id="toast" class="toast" role="status" aria-live="polite">Producto agregado al carrito</div>
 
 <!-- ================= PRELOADER ================= -->
 <div class="preloader">
-    <div class="bread">🥖</div>
+    <img src="./logo.png" alt="Cargando LINAJE DE REYES" class="preloader-logo" width="100" height="100">
     <div class="loader-text">LINAJE DE REYES</div>
 </div>
 
-<script src="script.js"></script>
+<script src="./script.js"></script>
 
 </body>
 </html>

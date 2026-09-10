@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 | LINAJE DE REYES</title>
 
-    <!-- SEO -->
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, follow">
     <meta name="language" content="Spanish">
     <meta property="og:title" content="LINAJE DE REYES | Panadería & Pastelería">
-    <meta property="og:description" content="Una tradición que nació en el Callao. Más de 20 años de historia.">
+    <meta property="og:description" content="Una tradición que nació en el Callao.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tusitio.com">
+    <meta property="og:url" content="https://richi2002.github.io/linaje-de-reyes/404.html">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://tusitio.com">
+    <link rel="canonical" href="https://richi2002.github.io/linaje-de-reyes/404.html">
+
+    <link rel="icon" type="image/png" href="./logo.png">
+    <link rel="apple-touch-icon" href="./logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
+
     <style>
         .error-page {
             min-height: 100vh;
@@ -30,9 +33,16 @@
             background: var(--cream-light);
             padding: 40px 20px;
         }
-        .error-page .emoji {
-            font-size: 80px;
-            margin-bottom: 20px;
+        .error-page .error-logo {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 25px;
+            animation: floatError 4s ease-in-out infinite;
+        }
+        @keyframes floatError {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
         }
         .error-page h1 {
             font-family: "Playfair Display", serif;
@@ -44,6 +54,7 @@
             color: var(--text-light);
             font-size: 16px;
             margin-bottom: 30px;
+            line-height: 1.7;
         }
         .error-page .btn {
             background: var(--navy);
@@ -54,23 +65,27 @@
             font-weight: 700;
             font-size: 13px;
             transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         .error-page .btn:hover {
             background: var(--navy-light);
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(23, 37, 54, 0.25);
         }
         @media (max-width: 600px) {
             .error-page h1 { font-size: 42px; }
-            .error-page .emoji { font-size: 60px; }
+            .error-page .error-logo { width: 100px; height: 100px; }
         }
     </style>
 </head>
 <body>
     <div class="error-page">
-        <div class="emoji">🥖</div>
+        <img src="./logo.png" alt="LINAJE DE REYES" class="error-logo">
         <h1>404</h1>
         <p>Parece que esta página no existe.<br>Pero siempre hay pan fresco esperándote.</p>
-        <a href="index.html" class="btn">Volver al inicio</a>
+        <a href="./index.html" class="btn">Volver al inicio <span>→</span></a>
     </div>
 </body>
 </html>
