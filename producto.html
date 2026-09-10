@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Producto | LINAJE DE REYES</title>
+
+    <meta name="description" content="Conoce los productos de LINAJE DE REYES, tradición y sabor con más de 20 años de historia.">
+
+    <!-- SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta property="og:title" content="LINAJE DE REYES | Panadería & Pastelería">
+    <meta property="og:description" content="Una tradición que nació en el Callao. Más de 20 años de historia.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tusitio.com/producto.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://tusitio.com/producto.html">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#172536">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="LINAJE DE REYES">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="producto.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🥖</span>
+            <span class="logo-text">
+                <strong>LINAJE DE REYES</strong>
+                <small>DESDE EL CALLAO</small>
+            </span>
+        </a>
+
+        <nav class="nav" id="productoNav">
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Productos</a>
+            <a href="index.html#historia">Nuestra historia</a>
+            <a href="index.html#nosotros">¿Por qué LINAJE DE REYES?</a>
+            <a href="index.html#contacto">Contacto</a>
+            <a href="index.html#pedido" class="nav-order">Hacer pedido</a>
+        </nav>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+            <span class="theme-icon">🌙</span>
+        </button>
+
+        <button class="menu-btn" id="productoMenuBtn" aria-label="Abrir menú" type="button">☰</button>
+
+    </div>
+</header>
+
+
+<main>
+
+    <section class="product-breadcrumb">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <span>›</span>
+            <a href="catalogo.html">Catálogo</a>
+            <span>›</span>
+            <span id="breadcrumbProduct">Producto</span>
+        </div>
+    </section>
+
+
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-layout">
+
+                <div class="product-image-area">
+                    <div class="product-image">
+                        <span class="product-category" id="productCategory">PANADERÍA</span>
+                        <div class="product-emoji" id="productEmoji">🥖</div>
+                        <div class="image-caption">
+                            <span>LINAJE DE REYES</span>
+                            <small>Tradición desde Callao</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-eyebrow">LINAJE DE REYES · MÁS DE 20 AÑOS</span>
+
+                    <h1 id="productName">Pan Francés</h1>
+
+                    <div class="product-price">
+                        S/
+                        <span id="productPrice">0.50</span>
+                    </div>
+
+                    <div class="product-divider"></div>
+
+                    <p class="product-description" id="productDescription">
+                        Nuestro clásico pan francés, elaborado para acompañar tus
+                        desayunos, comidas y momentos especiales.
+                    </p>
+
+                    <div class="product-features">
+                        <div class="feature">
+                            <span>✓</span>
+                            <div>
+                                <strong>Tradición</strong>
+                                <small>Más de 20 años de experiencia</small>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span>✓</span>
+                            <div>
+                                <strong>Calidad</strong>
+                                <small>Elaboración con dedicación</small>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span>✓</span>
+                            <div>
+                                <strong>Sabor</strong>
+                                <small>El sabor de siempre</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quantity-box">
+                        <span>Cantidad</span>
+                        <div class="quantity-control">
+                            <button type="button" id="minusBtn" aria-label="Disminuir cantidad">−</button>
+                            <strong id="quantity">1</strong>
+                            <button type="button" id="plusBtn" aria-label="Aumentar cantidad">+</button>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button type="button" class="btn btn-primary" id="addProductBtn">Agregar al pedido</button>
+                        <a href="catalogo.html" class="btn btn-secondary">← Volver al catálogo</a>
+                    </div>
+
+                    <div class="product-note">
+                        <span>✦</span>
+                        <p>Los productos y precios mostrados actualmente son referenciales y serán actualizados.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="product-story">
+        <div class="container">
+            <div class="story-card">
+                <div class="story-icon">♡</div>
+                <div>
+                    <span class="section-eyebrow">EL SABOR DE LINAJE DE REYES</span>
+                    <h2>Una tradición nacida en el Callao</h2>
+                    <p>
+                        LINAJE DE REYES nació en el Callao y durante más de 20 años ha construido
+                        una historia basada en el trabajo, la dedicación y el cariño por la
+                        panadería y pastelería.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+
+<div class="toast" id="toast" role="status" aria-live="polite">Producto agregado al pedido ✓</div>
+
+
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <div class="logo footer-logo">
+                <span class="logo-icon">🥖</span>
+                <span class="logo-text">
+                    <strong>LINAJE DE REYES</strong>
+                    <small>DESDE EL CALLAO</small>
+                </span>
+            </div>
+            <p>Una tradición que se disfruta todos los días.</p>
+
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h4>Explora</h4>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Productos</a>
+            <a href="index.html#historia">Nuestra historia</a>
+            <a href="index.html#pedido">Hacer pedido</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Contacto</h4>
+            <a href="https://wa.me/920898321" target="_blank" rel="noopener noreferrer">WhatsApp: +51 920 898 321</a>
+            <span>Callao, Perú</span>
+            <span>Lun-Sáb: 6AM - 9PM</span>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <span>© 2026 LINAJE DE REYES. Todos los derechos reservados.</span>
+            <span>Hecho con ♥</span>
+        </div>
+    </div>
+</footer>
+
+
+<script src="script.js"></script>
+<script src="producto.js"></script>
+
+</body>
+</html>

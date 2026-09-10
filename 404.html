@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | LINAJE DE REYES</title>
+
+    <!-- SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta property="og:title" content="LINAJE DE REYES | Panadería & Pastelería">
+    <meta property="og:description" content="Una tradición que nació en el Callao. Más de 20 años de historia.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tusitio.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://tusitio.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--cream-light);
+            padding: 40px 20px;
+        }
+        .error-page .emoji {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        .error-page h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 64px;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .error-page p {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .error-page .btn {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            transition: all 0.25s ease;
+        }
+        .error-page .btn:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            .error-page h1 { font-size: 42px; }
+            .error-page .emoji { font-size: 60px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="emoji">🥖</div>
+        <h1>404</h1>
+        <p>Parece que esta página no existe.<br>Pero siempre hay pan fresco esperándote.</p>
+        <a href="index.html" class="btn">Volver al inicio</a>
+    </div>
+</body>
+</html>
