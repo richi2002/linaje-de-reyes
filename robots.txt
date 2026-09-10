@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 
-Sitemap: https://tusitio.com/sitemap.xml
+Sitemap: https://richi2002.github.io/linaje-de-reyes/sitemap.xml
