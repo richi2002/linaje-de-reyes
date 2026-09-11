@@ -3,18 +3,55 @@
    FUNCIONES DEL CATÁLOGO
    ========================================================= */
 
+
 /* =========================================================
-   01. ELEMENTOS DEL CATÁLOGO
+   ELEMENTOS DEL CATÁLOGO
    ========================================================= */
 
-const catalogProducts = document.querySelectorAll(".catalog-product");
 const catalogFilters = document.querySelectorAll(".catalog-filter");
 const productSearch = document.getElementById("productSearch");
 const noProducts = document.getElementById("noProducts");
+const catalogGrid = document.getElementById("catalogGrid");
 
 
 /* =========================================================
-   02. FILTRAR CATÁLOGO
+   CARGAR PRODUCTOS EN EL CATÁLOGO
+   ========================================================= */
+
+function cargarCatalogo() {
+    if (!catalogGrid) return;
+
+    const productos = Object.values(PRODUCTOS_DB);
+
+    catalogGrid.innerHTML = productos.map(p => {
+        const bgClass = getProductBgClass(p.categoria);
+        const precioTexto = p.precioTexto || `S/ ${p.precio.toFixed(2)}`;
+        const precioLabel = p.precioTexto ? "Precio" : "Precio referencial";
+
+        return `
+            <article class="catalog-product" data-category="${p.categoria}" data-name="${p.nombre.toLowerCase()}">
+                <div class="catalog-product-image ${bgClass}">
+                    <span>${p.emoji}</span>
+                    ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ""}
+                    <a class="quick-view" href="./producto.html?producto=${p.id}">Ver detalle →</a>
+                </div>
+                <div class="catalog-product-info">
+                    <span class="catalog-product-category">${p.categoriaNombre.toUpperCase()}</span>
+                    <h3>${p.nombre}</h3>
+                    <p>${p.descripcion}</p>
+                    <div class="catalog-product-footer">
+                        <div><small>${precioLabel}</small><strong>${precioTexto}</strong></div>
+                        <button class="catalog-add" onclick="agregarAlCarrito('${p.nombre}', ${p.precio})" aria-label="Agregar ${p.nombre}">+</button>
+                    </div>
+                </div>
+            </article>
+        `;
+    }).join("");
+}
+
+
+/* =========================================================
+   FILTRAR CATÁLOGO
    ========================================================= */
 
 function filtrarCatalogo() {
@@ -23,8 +60,9 @@ function filtrarCatalogo() {
     const busqueda = productSearch ? productSearch.value.toLowerCase().trim() : "";
 
     let encontrados = 0;
+    const productos = document.querySelectorAll(".catalog-product");
 
-    catalogProducts.forEach(producto => {
+    productos.forEach(producto => {
         const categoria = producto.dataset.category || "";
         const nombre = producto.dataset.name || "";
 
@@ -48,156 +86,48 @@ function filtrarCatalogo() {
 
 
 /* =========================================================
-   03. FILTROS POR CATEGORÍA
+   INICIALIZACIÓN
    ========================================================= */
 
-catalogFilters.forEach(filtro => {
-    filtro.addEventListener("click", () => {
-        catalogFilters.forEach(item => item.classList.remove("active"));
-        filtro.classList.add("active");
-        filtrarCatalogo();
-    });
-});
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Cargar productos primero
+    cargarCatalogo();
 
+    // 2. Aplicar filtro inicial
+    filtrarCatalogo();
 
-/* =========================================================
-   04. BUSCADOR
-   ========================================================= */
-
-if (productSearch) {
-    productSearch.addEventListener("input", filtrarCatalogo);
-}
-
-
-/* =========================================================
-   05. AGREGAR PRODUCTO AL CARRITO
-   ========================================================= */
-
-function agregarProductoCatalogo(nombre, precio) {
-    if (typeof agregarAlCarrito !== "function") {
-        console.error("No se encontró la función agregarAlCarrito().");
-        return;
-    }
-    agregarAlCarrito(nombre, Number(precio));
-}
-
-
-/* =========================================================
-   06. PRODUCTO SELECCIONADO
-   ========================================================= */
-
-let productoSeleccionado = null;
-
-
-/* =========================================================
-   07. ABRIR MODAL DE PRODUCTO
-   ========================================================= */
-
-function mostrarProducto(nombre, categoria, precio, descripcion, icono) {
-    const modal = document.getElementById("productModal");
-    const modalName = document.getElementById("modalName");
-    const modalCategory = document.getElementById("modalCategory");
-    const modalDescription = document.getElementById("modalDescription");
-    const modalPrice = document.getElementById("modalPrice");
-    const modalImage = document.getElementById("modalImage");
-    const modalWhatsApp = document.getElementById("modalWhatsApp");
-
-    if (!modal) return;
-
-    if (modalName) modalName.textContent = nombre;
-    if (modalCategory) modalCategory.textContent = categoria.toUpperCase();
-    if (modalDescription) modalDescription.textContent = descripcion;
-    if (modalPrice) modalPrice.textContent = `S/ ${Number(precio).toFixed(2)}`;
-    if (modalImage) modalImage.textContent = icono;
-
-    /* WhatsApp directo */
-    if (modalWhatsApp) {
-        const mensaje = `Hola, me interesa el producto: *${nombre}* (S/ ${Number(precio).toFixed(2)}). ¿Podrían darme más información?`;
-        modalWhatsApp.href = `https://wa.me/920898321?text=${encodeURIComponent(mensaje)}`;
-    }
-
-    productoSeleccionado = {
-        nombre: nombre,
-        precio: Number(precio)
-    };
-
-    modal.classList.add("active");
-    document.body.classList.add("modal-open");
-    document.body.style.overflow = "hidden";
-}
-
-
-/* =========================================================
-   08. CERRAR MODAL
-   ========================================================= */
-
-function cerrarProducto() {
-    const modal = document.getElementById("productModal");
-
-    if (!modal) return;
-
-    modal.classList.remove("active");
-    document.body.classList.remove("modal-open");
-    document.body.style.overflow = "";
-
-    productoSeleccionado = null;
-}
-
-
-/* =========================================================
-   09. BOTÓN AGREGAR DESDE MODAL
-   ========================================================= */
-
-const modalAdd = document.getElementById("modalAdd");
-
-if (modalAdd) {
-    modalAdd.addEventListener("click", () => {
-        if (!productoSeleccionado) return;
-
-        agregarProductoCatalogo(productoSeleccionado.nombre, productoSeleccionado.precio);
-        cerrarProducto();
-    });
-}
-
-
-/* =========================================================
-   10. ESCAPE PARA CERRAR MODAL
-   ========================================================= */
-
-document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-        cerrarProducto();
-    }
-});
-
-
-/* =========================================================
-   11. MENÚ MÓVIL DEL CATÁLOGO
-   ========================================================= */
-
-const catalogMenuBtn = document.getElementById("catalogMenuBtn");
-const catalogNav = document.querySelector(".nav");
-
-if (catalogMenuBtn && catalogNav) {
-    catalogMenuBtn.addEventListener("click", () => {
-        catalogNav.classList.toggle("active");
-        const menuAbierto = catalogNav.classList.contains("active");
-        catalogMenuBtn.textContent = menuAbierto ? "✕" : "☰";
-        catalogMenuBtn.setAttribute("aria-label", menuAbierto ? "Cerrar menú" : "Abrir menú");
-    });
-
-    catalogNav.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            catalogNav.classList.remove("active");
-            catalogMenuBtn.textContent = "☰";
-            catalogMenuBtn.setAttribute("aria-label", "Abrir menú");
+    // 3. Configurar filtros por categoría
+    catalogFilters.forEach(filtro => {
+        filtro.addEventListener("click", () => {
+            catalogFilters.forEach(item => item.classList.remove("active"));
+            filtro.classList.add("active");
+            filtrarCatalogo();
         });
     });
-}
 
+    // 4. Configurar buscador
+    if (productSearch) {
+        productSearch.addEventListener("input", filtrarCatalogo);
+    }
 
-/* =========================================================
-   12. INICIALIZACIÓN
-   ========================================================= */
+    // 5. Configurar menú móvil del catálogo
+    const catalogMenuBtn = document.getElementById("catalogMenuBtn");
+    const catalogNav = document.querySelector(".nav");
 
-filtrarCatalogo();
+    if (catalogMenuBtn && catalogNav) {
+        catalogMenuBtn.addEventListener("click", () => {
+            catalogNav.classList.toggle("active");
+            const menuAbierto = catalogNav.classList.contains("active");
+            catalogMenuBtn.textContent = menuAbierto ? "✕" : "☰";
+            catalogMenuBtn.setAttribute("aria-label", menuAbierto ? "Cerrar menú" : "Abrir menú");
+        });
+
+        catalogNav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                catalogNav.classList.remove("active");
+                catalogMenuBtn.textContent = "☰";
+                catalogMenuBtn.setAttribute("aria-label", "Abrir menú");
+            });
+        });
+    }
+});

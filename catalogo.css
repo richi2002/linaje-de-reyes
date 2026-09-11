@@ -15,7 +15,7 @@
     background:
         radial-gradient(
             circle at 85% 20%,
-            rgba(201, 164, 92, 0.16),
+            rgba(201, 164, 92, 0.12),
             transparent 28%
         ),
         linear-gradient(
@@ -33,7 +33,7 @@
     height: 420px;
     right: -180px;
     top: -220px;
-    border: 1px solid rgba(225, 204, 157, 0.2);
+    border: 1px solid rgba(225, 204, 157, 0.15);
     border-radius: 50%;
 }
 
@@ -44,7 +44,7 @@
     height: 250px;
     right: 100px;
     bottom: -190px;
-    border: 1px solid rgba(225, 204, 157, 0.12);
+    border: 1px solid rgba(225, 204, 157, 0.08);
     border-radius: 50%;
 }
 
@@ -239,7 +239,7 @@
     border-color: var(--champagne);
 
     box-shadow:
-        0 0 0 4px rgba(201, 164, 92, 0.12);
+        0 0 0 4px rgba(201, 164, 92, 0.1);
 }
 
 
@@ -330,7 +330,7 @@
     background: var(--white);
 
     box-shadow:
-        0 8px 25px rgba(14, 24, 36, 0.055);
+        0 4px 16px rgba(14, 24, 36, 0.05);
 
     transition:
         transform 0.3s ease,
@@ -339,13 +339,13 @@
 }
 
 .catalog-product:hover {
-    transform: translateY(-7px);
+    transform: translateY(-6px);
 
     border-color:
-        rgba(201, 164, 92, 0.45);
+        rgba(201, 164, 92, 0.35);
 
     box-shadow:
-        0 20px 42px rgba(14, 24, 36, 0.12);
+        0 12px 32px rgba(14, 24, 36, 0.1);
 }
 
 
@@ -359,7 +359,7 @@
     display: grid;
     place-items: center;
 
-    height: 270px;
+    height: 240px;
 
     overflow: hidden;
 
@@ -371,11 +371,11 @@
 
     position: absolute;
 
-    width: 210px;
-    height: 210px;
+    width: 180px;
+    height: 180px;
 
     border:
-        1px solid rgba(23, 37, 54, 0.08);
+        1px solid rgba(23, 37, 54, 0.06);
 
     border-radius: 50%;
 
@@ -385,7 +385,7 @@
 
 .catalog-product:hover
 .catalog-product-image::before {
-    transform: scale(1.12);
+    transform: scale(1.1);
 }
 
 .catalog-product-image > span:first-child {
@@ -394,12 +394,12 @@
 
     display: block;
 
-    font-size: 100px;
+    font-size: 80px;
     line-height: 1;
 
     filter:
         drop-shadow(
-            0 14px 14px rgba(14, 24, 36, 0.16)
+            0 10px 12px rgba(14, 24, 36, 0.12)
         );
 
     transition:
@@ -410,12 +410,12 @@
 .catalog-product:hover
 .catalog-product-image > span:first-child {
     transform:
-        scale(1.08)
-        translateY(-4px);
+        scale(1.05)
+        translateY(-3px);
 
     filter:
         drop-shadow(
-            0 20px 20px rgba(14, 24, 36, 0.2)
+            0 16px 16px rgba(14, 24, 36, 0.15)
         );
 }
 
@@ -490,7 +490,7 @@
     top: 15px;
     left: 15px;
 
-    padding: 7px 12px;
+    padding: 6px 12px;
 
     border-radius: 30px;
 
@@ -522,12 +522,12 @@
     justify-content: center;
 
     min-width: 58px;
-    height: 38px;
+    height: 36px;
 
-    padding: 0 16px;
+    padding: 0 14px;
 
     border:
-        1px solid rgba(23, 37, 54, 0.12);
+        1px solid rgba(23, 37, 54, 0.1);
 
     border-radius: 50px;
 
@@ -538,19 +538,15 @@
     font-size: 10px;
     font-weight: 800;
 
-    cursor: pointer;
-
-    opacity: 1;
-    visibility: visible;
+    text-decoration: none;
 
     box-shadow:
-        0 7px 18px rgba(14, 24, 36, 0.15);
+        0 4px 12px rgba(14, 24, 36, 0.1);
 
     transition:
         background 0.25s ease,
         color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.25s ease;
 }
 
 .quick-view:hover {
@@ -558,9 +554,6 @@
     color: var(--cream);
 
     transform: translateY(-2px);
-
-    box-shadow:
-        0 10px 22px rgba(14, 24, 36, 0.2);
 }
 
 
@@ -569,7 +562,7 @@
    ========================================================= */
 
 .catalog-product-info {
-    padding: 24px;
+    padding: 22px;
 }
 
 .catalog-product-category {
@@ -591,15 +584,15 @@
     color: var(--navy);
 
     font-family: "Playfair Display", serif;
-    font-size: 23px;
+    font-size: 22px;
     line-height: 1.2;
     font-weight: 600;
 }
 
 .catalog-product p {
-    min-height: 48px;
+    min-height: 44px;
 
-    margin: 10px 0 20px;
+    margin: 10px 0 18px;
 
     color: var(--text-light);
 
@@ -644,7 +637,7 @@
     color: var(--navy);
 
     font-family: "Playfair Display", serif;
-    font-size: 21px;
+    font-size: 20px;
     line-height: 1;
     font-weight: 700;
 }
@@ -658,8 +651,8 @@
     position: relative;
     z-index: 10;
 
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
 
     flex-shrink: 0;
 
@@ -675,20 +668,19 @@
     color: var(--cream);
 
     font-family: "DM Sans", sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 400;
     line-height: 1;
 
     cursor: pointer;
 
     box-shadow:
-        0 7px 17px rgba(14, 24, 36, 0.17);
+        0 4px 12px rgba(14, 24, 36, 0.12);
 
     transition:
         background 0.25s ease,
         color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.25s ease;
 }
 
 .catalog-add:hover {
@@ -696,9 +688,6 @@
     color: var(--navy);
 
     transform: scale(1.08);
-
-    box-shadow:
-        0 10px 22px rgba(201, 164, 92, 0.3);
 }
 
 
@@ -755,12 +744,12 @@
     padding: 18px 20px;
 
     border:
-        1px solid rgba(201, 164, 92, 0.35);
+        1px solid rgba(201, 164, 92, 0.25);
 
     border-radius: 12px;
 
     background:
-        rgba(201, 164, 92, 0.08);
+        rgba(201, 164, 92, 0.06);
 }
 
 .catalog-note > span {
@@ -844,205 +833,6 @@
 
 
 /* =========================================================
-   MODAL
-   ========================================================= */
-
-.product-modal {
-    position: fixed;
-    inset: 0;
-
-    z-index: 9999;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease;
-}
-
-.product-modal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-overlay {
-    position: absolute;
-    inset: 0;
-
-    background:
-        rgba(14, 24, 36, 0.72);
-
-    backdrop-filter: blur(6px);
-}
-
-.modal-content {
-    position: relative;
-    z-index: 2;
-
-    width: min(820px, 100%);
-    max-height: 90vh;
-
-    overflow: hidden;
-
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-
-    border-radius: 22px;
-
-    background: var(--white);
-
-    box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.25);
-
-    transform:
-        translateY(20px)
-        scale(0.98);
-
-    transition:
-        transform 0.3s ease;
-}
-
-.product-modal.active .modal-content {
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-
-/* =========================================================
-   MODAL IMAGEN
-   ========================================================= */
-
-.modal-image {
-    min-height: 400px;
-
-    display: grid;
-    place-items: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #eee1cf,
-            #b9a27f
-        );
-
-    font-size: 125px;
-}
-
-
-/* =========================================================
-   MODAL INFO
-   ========================================================= */
-
-.modal-info {
-    position: relative;
-
-    padding: 48px;
-}
-
-.modal-info .catalog-product-category {
-    margin-bottom: 10px;
-}
-
-.modal-info h2 {
-    margin: 0;
-
-    color: var(--navy);
-
-    font-family: "Playfair Display", serif;
-    font-size: 40px;
-    line-height: 1.1;
-}
-
-.modal-info p {
-    margin: 18px 0;
-
-    color: var(--text-light);
-
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-.modal-price {
-    display: block;
-
-    margin-bottom: 25px;
-
-    color: var(--navy);
-
-    font-family: "Playfair Display", serif;
-    font-size: 30px;
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   CERRAR MODAL
-   ========================================================= */
-
-.modal-close {
-    position: absolute;
-    z-index: 5;
-
-    top: 15px;
-    right: 15px;
-
-    width: 40px;
-    height: 40px;
-
-    display: grid;
-    place-items: center;
-
-    padding: 0;
-
-    border: none;
-    border-radius: 50%;
-
-    background: var(--cream);
-    color: var(--navy);
-
-    font-size: 23px;
-    line-height: 1;
-
-    cursor: pointer;
-
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease;
-}
-
-.modal-close:hover {
-    background: var(--champagne);
-
-    transform: rotate(90deg);
-}
-
-
-/* =========================================================
-   BOTÓN DEL MODAL
-   ========================================================= */
-
-.modal-add-button {
-    width: 100%;
-    min-height: 52px;
-
-    border-radius: 50px;
-
-    font-size: 12px;
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
-
-/* =========================================================
    RESPONSIVE — TABLET
    ========================================================= */
 
@@ -1080,21 +870,6 @@
 
     .catalog-search {
         width: 100%;
-    }
-
-    .modal-content {
-        grid-template-columns: 1fr;
-
-        max-height: 92vh;
-        overflow-y: auto;
-    }
-
-    .modal-image {
-        min-height: 240px;
-    }
-
-    .modal-info {
-        padding: 35px;
     }
 
 }
@@ -1155,15 +930,19 @@
     }
 
     .catalog-product-image {
-        height: 250px;
+        height: 220px;
+    }
+
+    .catalog-product-image > span:first-child {
+        font-size: 70px;
     }
 
     .catalog-product-info {
-        padding: 21px;
+        padding: 20px;
     }
 
     .catalog-product h3 {
-        font-size: 22px;
+        font-size: 21px;
     }
 
     .catalog-product p {
@@ -1176,14 +955,6 @@
 
     .catalog-cta {
         padding: 70px 0;
-    }
-
-    .modal-info {
-        padding: 30px 24px 25px;
-    }
-
-    .modal-info h2 {
-        font-size: 32px;
     }
 
 }
@@ -1200,11 +971,11 @@
     }
 
     .catalog-product-image {
-        height: 230px;
+        height: 200px;
     }
 
     .catalog-product-image > span:first-child {
-        font-size: 85px;
+        font-size: 65px;
     }
 
     .quick-view {
@@ -1212,43 +983,4 @@
         bottom: 10px;
     }
 
-}
-/* =========================================================
-   BOTÓN WHATSAPP EN MODAL
-   ========================================================= */
-
-.modal-whatsapp-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    width: 100%;
-    min-height: 52px;
-
-    margin-top: 10px;
-    padding: 0 25px;
-
-    border: 1px solid #25D366;
-    border-radius: 50px;
-
-    background: transparent;
-    color: #25D366;
-
-    font-family: "DM Sans", sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-
-    text-decoration: none;
-
-    cursor: pointer;
-
-    transition: all 0.25s ease;
-}
-
-.modal-whatsapp-btn:hover {
-    background: #25D366;
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
 }

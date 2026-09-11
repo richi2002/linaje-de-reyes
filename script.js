@@ -5,10 +5,197 @@
 
 let carrito = [];
 
-const whatsapp = "920898321";
+const whatsapp = "51920898321";
 const STORAGE_KEY = "linaje_de_reyes_carrito";
 const THEME_KEY = "linaje_de_reyes_theme";
 const PEDIDO_MINIMO = 10;
+
+
+/* =========================================================
+   BASE DE DATOS DE PRODUCTOS
+   ========================================================= */
+
+const PRODUCTOS_DB = {
+    /* PANADERÍA */
+    panfrances: {
+        id: "panfrances",
+        nombre: "Pan Francés",
+        precio: 0.50,
+        categoria: "panaderia",
+        categoriaNombre: "Panadería",
+        emoji: "🥖",
+        descripcion: "Clásico, fresco y perfecto para acompañar cualquier momento del día.",
+        badge: "Favorito"
+    },
+    croissant: {
+        id: "croissant",
+        nombre: "Croissant",
+        precio: 3.50,
+        categoria: "panaderia",
+        categoriaNombre: "Panadería",
+        emoji: "🥐",
+        descripcion: "Delicado, dorado y de textura ligera. Ideal para comenzar el día."
+    },
+    panchalla: {
+        id: "panchalla",
+        nombre: "Pan Challa",
+        precio: 1.00,
+        categoria: "panaderia",
+        categoriaNombre: "Panadería",
+        emoji: "🍞",
+        descripcion: "Pan tradicional peruano, ideal para desayunos y reuniones familiares."
+    },
+    pandecoco: {
+        id: "pandecoco",
+        nombre: "Pan de Coco",
+        precio: 0.90,
+        categoria: "panaderia",
+        categoriaNombre: "Panadería",
+        emoji: "🥥",
+        descripcion: "Dulce y delicioso, perfecto para acompañar el café de la tarde."
+    },
+    empanada: {
+        id: "empanada",
+        nombre: "Empanada",
+        precio: 3.00,
+        categoria: "panaderia",
+        categoriaNombre: "Panadería",
+        emoji: "🥟",
+        descripcion: "Empanadas de pollo, carne o queso, horneadas al momento.",
+        badge: "Nuevo"
+    },
+    panartesanal: {
+        id: "panartesanal",
+        nombre: "Pan Artesanal",
+        precio: 8.00,
+        categoria: "panaderia",
+        categoriaNombre: "Panadería",
+        emoji: "🥯",
+        descripcion: "Pan de masa madre, multigrano o con avena. Hecho con dedicación."
+    },
+
+    /* PASTELERÍA */
+    porciontorta: {
+        id: "porciontorta",
+        nombre: "Porción de Torta",
+        precio: 7.00,
+        categoria: "pasteleria",
+        categoriaNombre: "Pastelería",
+        emoji: "🍰",
+        descripcion: "Una porción especial para darte ese gusto que mereces.",
+        badge: "Popular"
+    },
+    galletas: {
+        id: "galletas",
+        nombre: "Galletas",
+        precio: 2.50,
+        categoria: "pasteleria",
+        categoriaNombre: "Pastelería",
+        emoji: "🍪",
+        descripcion: "Dulces, sencillas y perfectas para acompañar tu café."
+    },
+    piedelimon: {
+        id: "piedelimon",
+        nombre: "Pie de Limón",
+        precio: 9.00,
+        categoria: "pasteleria",
+        categoriaNombre: "Pastelería",
+        emoji: "🍋",
+        descripcion: "Refrescante y cremoso, el equilibrio perfecto entre ácido y dulce."
+    },
+
+    /* POSTRES */
+    postres: {
+        id: "postres",
+        nombre: "Postres Variados",
+        precio: 5.00,
+        categoria: "postres",
+        categoriaNombre: "Postres",
+        emoji: "🍮",
+        descripcion: "Pequeños momentos dulces para disfrutar y compartir."
+    },
+    cheesecake: {
+        id: "cheesecake",
+        nombre: "Cheesecake",
+        precio: 13.00,
+        categoria: "postres",
+        categoriaNombre: "Postres",
+        emoji: "🧁",
+        descripcion: "De maracuyá, fresa o frutos rojos. Cremoso y delicioso.",
+        badge: "Popular"
+    },
+    quesillo: {
+        id: "quesillo",
+        nombre: "Quesillo",
+        precio: 10.50,
+        categoria: "postres",
+        categoriaNombre: "Postres",
+        emoji: "🍯",
+        descripcion: "Postre tradicional con textura suave y sabor inconfundible."
+    },
+
+    /* TORTAS */
+    tortapersonalizada: {
+        id: "tortapersonalizada",
+        nombre: "Torta Personalizada",
+        precio: 50.00,
+        categoria: "tortas",
+        categoriaNombre: "Tortas",
+        emoji: "🎂",
+        descripcion: "Diseñamos tortas para celebraciones y momentos especiales.",
+        badge: "Especial",
+        precioTexto: "Desde S/ 50"
+    },
+    tortachocolate: {
+        id: "tortachocolate",
+        nombre: "Torta de Chocolate",
+        precio: 11.00,
+        categoria: "tortas",
+        categoriaNombre: "Tortas",
+        emoji: "🍫",
+        descripcion: "Húmeda, intensa y con el mejor sabor a chocolate.",
+        precioTexto: "Porción"
+    },
+    tresleches: {
+        id: "tresleches",
+        nombre: "Torta Tres Leches",
+        precio: 10.00,
+        categoria: "tortas",
+        categoriaNombre: "Tortas",
+        emoji: "🥛",
+        descripcion: "Suave, húmeda y con el equilibrio perfecto de sabores.",
+        precioTexto: "Porción"
+    },
+
+    /* BEBIDAS */
+    cafe: {
+        id: "cafe",
+        nombre: "Café",
+        precio: 4.00,
+        categoria: "bebidas",
+        categoriaNombre: "Bebidas",
+        emoji: "☕",
+        descripcion: "Café pasado o americano, perfecto para acompañar tus panes."
+    },
+    chocolatecaliente: {
+        id: "chocolatecaliente",
+        nombre: "Chocolate Caliente",
+        precio: 5.00,
+        categoria: "bebidas",
+        categoriaNombre: "Bebidas",
+        emoji: "🍫",
+        descripcion: "Chocolate caliente cremoso, perfecto para los días fríos."
+    },
+    infusiones: {
+        id: "infusiones",
+        nombre: "Infusiones",
+        precio: 3.00,
+        categoria: "bebidas",
+        categoriaNombre: "Bebidas",
+        emoji: "🍵",
+        descripcion: "Manzanilla, anís, hierba luisa y más. Aromáticas y reconfortantes."
+    }
+};
 
 
 /* =========================================================
@@ -62,11 +249,8 @@ document.addEventListener("DOMContentLoaded", () => {
     crearCarritoFlotante();
     actualizarCarrito();
 
-    /* Filtros homepage */
-    iniciarFiltros();
-
-    /* Preloader */
-    ocultarPreloader();
+    /* Productos destacados en homepage */
+    cargarProductosDestacados();
 
     /* Botón volver arriba */
     crearScrollTop();
@@ -110,6 +294,52 @@ function iniciarMenuPrincipal() {
             menuBtn.setAttribute("aria-label", "Abrir menú");
         });
     });
+}
+
+
+/* =========================================================
+   CARGAR PRODUCTOS DESTACADOS (Homepage)
+   ========================================================= */
+
+function cargarProductosDestacados() {
+    const grid = document.getElementById("productsGrid");
+    if (!grid) return;
+
+    const destacados = ["panfrances", "croissant", "porciontorta", "cheesecake", "galletas", "tortapersonalizada"];
+
+    grid.innerHTML = destacados.map(id => {
+        const p = PRODUCTOS_DB[id];
+        if (!p) return "";
+
+        return `
+            <article class="product-card" data-category="${p.categoria}">
+                <div class="product-image ${getProductBgClass(p.categoria)}">
+                    <span>${p.emoji}</span>
+                    ${p.badge ? `<div class="product-tag">${p.badge}</div>` : ""}
+                </div>
+                <div class="product-info">
+                    <span class="product-category">${p.categoriaNombre.toUpperCase()}</span>
+                    <h3>${p.nombre}</h3>
+                    <p>${p.descripcion}</p>
+                    <div class="product-bottom">
+                        <strong>${p.precioTexto || `S/ ${p.precio.toFixed(2)}`}</strong>
+                        <button class="add-btn" onclick="agregarAlCarrito('${p.nombre}', ${p.precio})" aria-label="Agregar ${p.nombre}">+</button>
+                    </div>
+                </div>
+            </article>
+        `;
+    }).join("");
+}
+
+function getProductBgClass(categoria) {
+    const clases = {
+        panaderia: "bread-bg",
+        pasteleria: "cake-bg",
+        postres: "dessert-bg",
+        tortas: "custom-bg",
+        bebidas: "cookie-bg"
+    };
+    return clases[categoria] || "bread-bg";
 }
 
 
@@ -225,9 +455,6 @@ function actualizarCarrito() {
             drawerTotal.textContent = `S/ ${total.toFixed(2)}`;
         }
     }
-
-    /* Contador navbar */
-    actualizarContadorNavbar();
 }
 
 
@@ -351,7 +578,6 @@ function crearCarritoFlotante() {
                         <span>Total</span>
                         <strong id="drawerCartTotal">S/ 0.00</strong>
                     </div>
-                    <button type="button" class="drawer-pay-btn" id="drawerPayBtn">💳 Pagar con Yape o Plin</button>
                     <button type="button" class="drawer-order-btn" id="drawerOrderBtn">Continuar con mi pedido</button>
                     <button type="button" class="drawer-catalog-btn" id="drawerCatalogBtn">Seguir comprando</button>
                     <button type="button" class="drawer-clear-btn" onclick="limpiarCarrito()">Vaciar carrito</button>
@@ -368,9 +594,9 @@ function crearCarritoFlotante() {
 
     document.getElementById("drawerOrderBtn").addEventListener("click", () => {
         cerrarCarrito();
-        const cartSection = document.getElementById("cartItems");
+        const cartSection = document.getElementById("pedido");
         if (cartSection) {
-            cartSection.scrollIntoView({ behavior: "smooth", block: "center" });
+            cartSection.scrollIntoView({ behavior: "smooth", block: "start" });
         } else {
             window.location.href = "index.html#pedido";
         }
@@ -381,15 +607,6 @@ function crearCarritoFlotante() {
         if (!window.location.pathname.includes("catalogo.html")) {
             window.location.href = "catalogo.html";
         }
-    });
-
-    document.getElementById("drawerPayBtn").addEventListener("click", () => {
-        if (carrito.length === 0) {
-            mostrarToast("Agrega productos primero");
-            return;
-        }
-        cerrarCarrito();
-        setTimeout(abrirModalPago, 300);
     });
 
     document.addEventListener("keydown", event => {
@@ -438,33 +655,6 @@ function mostrarToast(mensaje) {
     toastTimeout = setTimeout(() => {
         toast.classList.remove("show");
     }, 2500);
-}
-
-
-/* =========================================================
-   FILTROS HOMEPAGE
-   ========================================================= */
-
-function iniciarFiltros() {
-    const filtros = document.querySelectorAll(".filter");
-    const productos = document.querySelectorAll(".product-card");
-
-    if (!filtros.length || !productos.length) return;
-
-    filtros.forEach(filtro => {
-        filtro.addEventListener("click", () => {
-            filtros.forEach(item => item.classList.remove("active"));
-            filtro.classList.add("active");
-
-            const categoria = filtro.dataset.filter;
-
-            productos.forEach(producto => {
-                const categoriaProducto = producto.dataset.category;
-                const mostrar = categoria === "todos" || categoriaProducto === categoria;
-                producto.style.display = mostrar ? "" : "none";
-            });
-        });
-    });
 }
 
 
@@ -639,80 +829,6 @@ function enviarPedido(event) {
 
 
 /* =========================================================
-   MODAL DE PAGO YAPE/PLIN
-   ========================================================= */
-
-let metodoPagoActual = "yape";
-
-function abrirModalPago() {
-    const modal = document.getElementById("paymentModal");
-    if (!modal) return;
-
-    const subtotal = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
-    const descuento = calcularDescuento(subtotal);
-    const total = subtotal - descuento;
-
-    const paymentAmount = document.getElementById("paymentAmount");
-    if (paymentAmount) {
-        paymentAmount.textContent = `S/ ${total.toFixed(2)}`;
-    }
-
-    modal.classList.add("active");
-    document.body.classList.add("modal-open");
-    document.body.style.overflow = "hidden";
-
-    cambiarMetodoPago(metodoPagoActual);
-}
-
-function cerrarModalPago() {
-    const modal = document.getElementById("paymentModal");
-    if (!modal) return;
-
-    modal.classList.remove("active");
-    document.body.classList.remove("modal-open");
-    document.body.style.overflow = "";
-}
-
-function cambiarMetodoPago(metodo) {
-    metodoPagoActual = metodo;
-
-    document.querySelectorAll(".payment-tab").forEach(tab => {
-        tab.classList.toggle("active", tab.dataset.method === metodo);
-    });
-
-    const qrImage = document.getElementById("qrImage");
-
-    if (metodo === "yape") {
-        if (qrImage) {
-            qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=yape:920898321";
-        }
-    } else {
-        if (qrImage) {
-            qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=plin:920898321";
-        }
-    }
-}
-
-function confirmarPago() {
-    cerrarModalPago();
-
-    const subtotal = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
-    const descuento = calcularDescuento(subtotal);
-    const total = subtotal - descuento;
-
-    const mensaje = `Hola, acabo de realizar el pago por *${metodoPagoActual.toUpperCase()}* por un monto de *S/ ${total.toFixed(2)}*.\n\nAdjunto la captura de mi pago.`;
-
-    window.open(
-        `https://wa.me/${whatsapp}?text=${encodeURIComponent(mensaje)}`,
-        "_blank",
-        "noopener,noreferrer"
-    );
-
-    mostrarToast("Abriendo WhatsApp para confirmar pago...");
-}
-
-
-/* =========================================================
    MODO OSCURO
    ========================================================= */
 
@@ -784,39 +900,6 @@ function verificarHorario() {
         scheduleStatus.classList.add("closed");
         scheduleStatus.classList.remove("open");
         if (strong) strong.textContent = "Cerrado · " + horario;
-    }
-}
-
-
-/* =========================================================
-   CONTADOR NAVBAR
-   ========================================================= */
-
-function actualizarContadorNavbar() {
-    const cantidadTotal = carrito.reduce((t, p) => t + p.cantidad, 0);
-
-    let navbarCart = document.getElementById("navbarCart");
-
-    if (!navbarCart) {
-        const nav = document.getElementById("nav") || document.querySelector(".nav");
-        if (!nav) return;
-
-        const navOrder = nav.querySelector(".nav-order");
-        if (!navOrder) return;
-
-        navbarCart = document.createElement("a");
-        navbarCart.id = "navbarCart";
-        navbarCart.className = "navbar-cart";
-        navbarCart.href = "#pedido";
-        navbarCart.innerHTML = `🛒 <span id="navbarCartCount">0</span>`;
-
-        navOrder.parentNode.insertBefore(navbarCart, navOrder);
-    }
-
-    const contador = document.getElementById("navbarCartCount");
-    if (contador) {
-        contador.textContent = cantidadTotal;
-        navbarCart.style.display = cantidadTotal > 0 ? "inline-flex" : "none";
     }
 }
 
@@ -898,16 +981,6 @@ function crearScrollTop() {
     btn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
-}
-
-function ocultarPreloader() {
-    const preloader = document.querySelector(".preloader");
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add("hide");
-            setTimeout(() => preloader.remove(), 600);
-        }, 800);
-    }
 }
 
 
