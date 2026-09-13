@@ -3,7 +3,7 @@
    SERVICE WORKER - PWA
    ========================================================= */
 
-const CACHE_NAME = "linaje-de-reyes-v3";
+const CACHE_NAME = "linaje-de-reyes-v6";
 
 const ASSETS = [
     "./",
@@ -27,7 +27,10 @@ self.addEventListener("install", event => {
         caches.open(CACHE_NAME)
             .then(cache => cache.addAll(ASSETS))
             .then(() => self.skipWaiting())
-            .catch(err => console.warn("Error cacheando:", err))
+            .catch(err => {
+                console.error("[SW] Error crítico cacheando assets:", err);
+                throw err; /* Falla la instalación del SW → visible en DevTools */
+            })
     );
 });
 
@@ -51,6 +54,15 @@ self.addEventListener("fetch", event => {
     /* Ignorar peticiones externas (Google Fonts, QR API, etc) */
     const url = new URL(event.request.url);
     if (url.origin !== location.origin) return;
+
+    /* Fallback para navegación (offline → index.html) */
+    if (event.request.mode === "navigate") {
+        event.respondWith(
+            fetch(event.request)
+                .catch(() => caches.match("./index.html"))
+        );
+        return;
+    }
 
     event.respondWith(
         caches.match(event.request)

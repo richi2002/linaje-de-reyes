@@ -2,6 +2,49 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "LINAJE DE REYES",
+    "description": "Panadería y pastelería con más de 20 años de historia en el Callao.",
+    "url": "https://richi2002.github.io/linaje-de-reyes/",
+    "logo": "https://richi2002.github.io/linaje-de-reyes/logo.png",
+    "image": "https://richi2002.github.io/linaje-de-reyes/logo.png",
+    "telephone": "+51920898321",
+    "priceRange": "S/",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Callao",
+        "addressCountry": "PE"
+    },
+    "openingHoursSpecification": [
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "06:00",
+            "closes": "21:00"
+        },
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "06:00",
+            "closes": "21:30"
+        },
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "07:00",
+            "closes": "20:00"
+        }
+    ],
+    "sameAs": [
+        "https://facebook.com/linajedereyes",
+        "https://instagram.com/linajedereyes",
+        "https://tiktok.com/@linajedereyes"
+    ]
+}
+</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>LINAJE DE REYES | Panadería & Pastelería</title>
@@ -16,8 +59,15 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://richi2002.github.io/linaje-de-reyes/">
     <meta property="og:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="Logo de LINAJE DE REYES, panadería y pastelería del Callao">
     <meta property="og:locale" content="es_PE">
+    <meta property="og:site_name" content="LINAJE DE REYES">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LINAJE DE REYES | Panadería & Pastelería">
+    <meta name="twitter:description" content="Una tradición que nació en el Callao. Más de 20 años de historia.">
+    <meta name="twitter:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
     <link rel="canonical" href="https://richi2002.github.io/linaje-de-reyes/">
 
     <!-- FAVICON -->
@@ -33,7 +83,18 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Preload del logo (mejora el FCP) -->
+    <link rel="preload" as="image" href="./logo.png" type="image/png">
+
+    <!-- Carga asíncrona de fuentes (no bloquea el renderizado) -->
+    <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+    </noscript>
 
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -69,7 +130,7 @@
             <span class="theme-icon">🌙</span>
         </button>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
     </div>
 </header>
 
@@ -127,6 +188,7 @@
 
 <!-- ================= BENEFICIOS ================= -->
 <section class="benefits">
+    <h2 class="sr-only">Nuestros valores</h2>
     <div class="container benefits-grid">
         <article class="benefit">
             <div class="benefit-icon">✦</div>
@@ -340,6 +402,20 @@
 
 <!-- ================= PEDIDO ================= -->
 <section class="section order-section" id="pedido">
+
+    <!-- Encabezado solo visible al imprimir -->
+    <div class="print-header">
+        <div class="print-header-brand">
+            <strong>LINAJE DE REYES</strong>
+            <span>Panadería &amp; Pastelería · Desde el Callao</span>
+        </div>
+        <div class="print-header-info">
+            <div><span>WhatsApp:</span> <strong>+51 920 898 321</strong></div>
+            <div><span>Pedido N°:</span> <strong id="printOrderNumber">—</strong></div>
+            <div><span>Fecha:</span> <strong id="printOrderDate">—</strong></div>
+        </div>
+    </div>
+
     <div class="container order-grid">
         <div class="order-intro">
             <span class="section-eyebrow">HAZ TU PEDIDO</span>
@@ -441,12 +517,17 @@
                     <label for="comentarios">Comentarios</label>
                     <textarea id="comentarios" rows="3" placeholder="¿Algún detalle para tu pedido?"></textarea>
                 </div>
-
                 <button type="submit" class="btn whatsapp-btn">
                     <span>◉</span> Enviar pedido por WhatsApp
                 </button>
             </form>
         </div>
+    </div>
+
+    <!-- Pie solo visible al imprimir -->
+    <div class="print-footer">
+        <p>Gracias por tu pedido. Este comprobante no es una factura.</p>
+        <p>Para confirmar, envíanos tu pedido por WhatsApp al +51 920 898 321.</p>
     </div>
 </section>
 

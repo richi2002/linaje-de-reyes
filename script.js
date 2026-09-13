@@ -8,8 +8,101 @@ let carrito = [];
 const whatsapp = "51920898321";
 const STORAGE_KEY = "linaje_de_reyes_carrito";
 const THEME_KEY = "linaje_de_reyes_theme";
+const CUPON_KEY = "linaje_de_reyes_cupon";
 const PEDIDO_MINIMO = 10;
 
+/* =========================================================
+   SISTEMA DE FAVORITOS
+   ========================================================= */
+
+const FAVORITOS_KEY = "linaje_de_reyes_favoritos";
+
+let favoritos = [];
+
+
+/* Cargar favoritos al inicio */
+function cargarFavoritos() {
+    try {
+        const guardado = localStorage.getItem(FAVORITOS_KEY);
+        if (!guardado) {
+            favoritos = [];
+            return;
+        }
+        const datos = JSON.parse(guardado);
+        favoritos = Array.isArray(datos) ? datos : [];
+    } catch (error) {
+        console.warn("Error cargando favoritos:", error);
+        favoritos = [];
+    }
+}
+
+
+/* Guardar favoritos */
+function guardarFavoritos() {
+    try {
+        localStorage.setItem(FAVORITOS_KEY, JSON.stringify(favoritos));
+    } catch (error) {
+        console.warn("Error guardando favoritos:", error);
+    }
+}
+
+
+/* Verificar si un producto es favorito */
+function esFavorito(nombreProducto) {
+    return favoritos.includes(nombreProducto);
+}
+
+
+/* Alternar favorito (agregar/quitar) */
+function toggleFavorito(nombreProducto, event) {
+    if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+    }
+
+    const index = favoritos.indexOf(nombreProducto);
+
+    if (index === -1) {
+        favoritos.push(nombreProducto);
+        mostrarToast(`❤️ ${nombreProducto} agregado a favoritos`);
+    } else {
+        favoritos.splice(index, 1);
+        mostrarToast(`${nombreProducto} eliminado de favoritos`);
+    }
+
+    guardarFavoritos();
+    actualizarBotonesFavoritos();
+
+    /* Si estamos en modo "ver solo favoritos", actualizar filtro.
+       Usamos typeof para evitar error en index.html donde
+       filtrarCatalogo() no existe. */
+    const filtroActivo = document.querySelector(".catalog-filter.active");
+    if (
+        filtroActivo &&
+        filtroActivo.dataset.category === "favoritos" &&
+        typeof filtrarCatalogo === "function"
+    ) {
+        filtrarCatalogo();
+    }
+}
+
+
+/* Actualizar todos los botones de favoritos en la página */
+function actualizarBotonesFavoritos() {
+    document.querySelectorAll("[data-favorito]").forEach(btn => {
+        const nombre = btn.dataset.favorito;
+        const esFav = esFavorito(nombre);
+
+        btn.classList.toggle("active", esFav);
+        btn.setAttribute(
+            "aria-label",
+            esFav
+                ? `Quitar ${nombre} de favoritos`
+                : `Agregar ${nombre} a favoritos`
+        );
+        btn.setAttribute("aria-pressed", esFav);
+    });
+}
 
 /* =========================================================
    BASE DE DATOS DE PRODUCTOS
@@ -241,11 +334,15 @@ let cuponAplicado = null;
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+    /* Favoritos primero (para que catalogo.js los use) */
+    cargarFavoritos();
+
     /* Menú principal */
     iniciarMenuPrincipal();
 
     /* Carrito */
     cargarCarrito();
+    cargarCupon();          /* NUEVO: restaurar cupón guardado */
     crearCarritoFlotante();
     actualizarCarrito();
 
@@ -257,6 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* Cupones */
     iniciarCupones();
+    restaurarCuponAplicado(); /* NUEVO */
 
     /* Tema */
     initTheme();
@@ -281,18 +379,20 @@ function iniciarMenuPrincipal() {
     if (!menuBtn || !nav) return;
 
     menuBtn.addEventListener("click", () => {
-        nav.classList.toggle("active");
-        const abierto = nav.classList.contains("active");
-        menuBtn.textContent = abierto ? "✕" : "☰";
-        menuBtn.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+    nav.classList.toggle("active");
+    const abierto = nav.classList.contains("active");
+    menuBtn.textContent = abierto ? "✕" : "☰";
+    menuBtn.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+    menuBtn.setAttribute("aria-expanded", abierto);
     });
 
     nav.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            nav.classList.remove("active");
-            menuBtn.textContent = "☰";
-            menuBtn.setAttribute("aria-label", "Abrir menú");
-        });
+    link.addEventListener("click", () => {
+        nav.classList.remove("active");
+        menuBtn.textContent = "☰";
+        menuBtn.setAttribute("aria-label", "Abrir menú");
+        menuBtn.setAttribute("aria-expanded", "false");
+    });
     });
 }
 
@@ -316,20 +416,42 @@ function cargarProductosDestacados() {
                 <div class="product-image ${getProductBgClass(p.categoria)}">
                     <span>${p.emoji}</span>
                     ${p.badge ? `<div class="product-tag">${p.badge}</div>` : ""}
+                    <button
+                        class="favorite-btn"
+                        data-favorito="${escapeHTML(p.nombre)}"
+                        onclick="toggleFavorito('${p.nombre.replace(/'/g, "\\'")}', event)"
+                        aria-label="Agregar a favoritos"
+                        aria-pressed="false"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </button>
                 </div>
                 <div class="product-info">
                     <span class="product-category">${p.categoriaNombre.toUpperCase()}</span>
-                    <h3>${p.nombre}</h3>
-                    <p>${p.descripcion}</p>
+                    <h3>${escapeHTML(p.nombre)}</h3>
+                    <p>${escapeHTML(p.descripcion)}</p>
                     <div class="product-bottom">
                         <strong>${p.precioTexto || `S/ ${p.precio.toFixed(2)}`}</strong>
-                        <button class="add-btn" onclick="agregarAlCarrito('${p.nombre}', ${p.precio})" aria-label="Agregar ${p.nombre}">+</button>
+                        <button class="add-btn" onclick="agregarAlCarrito('${p.nombre.replace(/'/g, "\\'")}', ${p.precio})" aria-label="Agregar ${p.nombre}">+</button>
                     </div>
                 </div>
             </article>
         `;
     }).join("");
+
+    /* Actualizar botones de favoritos tras render */
+    if (typeof actualizarBotonesFavoritos === "function") {
+        actualizarBotonesFavoritos();
+    }
 }
+
+/* =========================================================
+   CLASE DE FONDO SEGÚN CATEGORÍA
+   Devuelve las clases definidas en style.css (homepage).
+   catalogo.js usa su propia función para catalogo.css.
+   ========================================================= */
 
 function getProductBgClass(categoria) {
     const clases = {
@@ -350,7 +472,7 @@ function getProductBgClass(categoria) {
 function agregarAlCarrito(nombre, precio) {
     precio = Number(precio);
 
-    if (!nombre || typeof nombre !== 'string' || Number.isNaN(precio) || precio < 0) {
+    if (!nombre || typeof nombre !== "string" || Number.isNaN(precio) || precio < 0) {
         console.warn("Producto inválido:", nombre, precio);
         return;
     }
@@ -388,6 +510,7 @@ function actualizarCarrito() {
     const cantidadTotal = carrito.reduce((t, p) => t + p.cantidad, 0);
     const subtotal = carrito.reduce((t, p) => t + p.precio * p.cantidad, 0);
     const descuento = calcularDescuento(subtotal);
+    const cuponDesactivado = cuponAplicado && subtotal < cuponAplicado.minimo;
     const total = subtotal - descuento;
 
     /* Contadores */
@@ -410,6 +533,13 @@ function actualizarCarrito() {
         } else {
             cartTotal.textContent = `S/ ${total.toFixed(2)}`;
         }
+    }
+    if (cuponDesactivado && cartCount) {
+    const mensaje = document.getElementById("couponMessage");
+    if (mensaje) {
+        mensaje.textContent = `Cupón desactivado — mínimo S/ ${cuponAplicado.minimo.toFixed(2)}`;
+        mensaje.className = "coupon-message error";
+    }
     }
 
     /* Items homepage */
@@ -513,7 +643,15 @@ function generarLineaDescuento(subtotal, descuento, total) {
 function cambiarCantidad(indice, cambio) {
     if (!carrito[indice]) return;
 
-    carrito[indice].cantidad += cambio;
+    const nuevaCantidad = carrito[indice].cantidad + cambio;
+
+    /* Tope superior coherente con producto.js */
+    if (nuevaCantidad > 99) {
+        mostrarToast("Máximo 99 unidades por producto");
+        return;
+    }
+
+    carrito[indice].cantidad = nuevaCantidad;
 
     if (carrito[indice].cantidad <= 0) {
         const nombre = carrito[indice].nombre;
@@ -542,6 +680,7 @@ function limpiarCarrito() {
     if (confirm("¿Estás seguro de vaciar tu carrito?")) {
         carrito = [];
         cuponAplicado = null;
+        localStorage.removeItem(CUPON_KEY);
         actualizarCarrito();
         guardarCarrito();
         mostrarToast("Carrito vaciado");
@@ -626,6 +765,10 @@ function abrirCarrito() {
     drawer.classList.add("active");
     drawer.setAttribute("aria-hidden", "false");
     document.body.classList.add("cart-open");
+
+    /* Mover el foco dentro del drawer */
+    const closeBtn = document.getElementById("cartDrawerClose");
+    if (closeBtn) closeBtn.focus();
 }
 
 function cerrarCarrito() {
@@ -634,6 +777,10 @@ function cerrarCarrito() {
     drawer.classList.remove("active");
     drawer.setAttribute("aria-hidden", "true");
     document.body.classList.remove("cart-open");
+
+    /* Devolver el foco al botón que abrió el drawer */
+    const floatingBtn = document.getElementById("floatingCart");
+    if (floatingBtn) floatingBtn.focus();
 }
 
 
@@ -680,6 +827,18 @@ function iniciarCupones() {
     }
 }
 
+/* Restaurar cupón previamente guardado (al recargar) */
+function restaurarCuponAplicado() {
+    if (!cuponAplicado) return;
+    const input = document.getElementById("cupon");
+    const mensaje = document.getElementById("couponMessage");
+    if (input) input.value = cuponAplicado.codigo;
+    if (mensaje) {
+        mensaje.textContent = `✓ ${cuponAplicado.descripcion} aplicado`;
+        mensaje.className = "coupon-message success";
+    }
+}
+
 function aplicarCupon() {
     const input = document.getElementById("cupon");
     const mensaje = document.getElementById("couponMessage");
@@ -703,6 +862,7 @@ function aplicarCupon() {
         mensaje.textContent = "❌ Cupón no válido";
         mensaje.classList.add("error");
         cuponAplicado = null;
+        localStorage.removeItem(CUPON_KEY);
         actualizarCarrito();
         return;
     }
@@ -711,6 +871,7 @@ function aplicarCupon() {
         mensaje.textContent = "❌ Este cupón ha expirado";
         mensaje.classList.add("error");
         cuponAplicado = null;
+        localStorage.removeItem(CUPON_KEY);
         actualizarCarrito();
         return;
     }
@@ -721,11 +882,13 @@ function aplicarCupon() {
         mensaje.textContent = `Mínimo S/ ${cupon.minimo.toFixed(2)} para este cupón`;
         mensaje.classList.add("error");
         cuponAplicado = null;
+        localStorage.removeItem(CUPON_KEY);
         actualizarCarrito();
         return;
     }
 
     cuponAplicado = { codigo: codigo, ...cupon };
+    guardarCupon(); /* NUEVO: persistir */
     mensaje.textContent = `✓ ${cupon.descripcion} aplicado`;
     mensaje.classList.add("success");
 
@@ -733,8 +896,47 @@ function aplicarCupon() {
     mostrarToast(`Cupón ${codigo} aplicado`);
 }
 
+/* Persistencia del cupón */
+function guardarCupon() {
+    try {
+        if (cuponAplicado) {
+            localStorage.setItem(CUPON_KEY, JSON.stringify(cuponAplicado));
+        } else {
+            localStorage.removeItem(CUPON_KEY);
+        }
+    } catch (error) {
+        console.warn("No se pudo guardar el cupón.", error);
+    }
+}
+
+function cargarCupon() {
+    try {
+        const guardado = localStorage.getItem(CUPON_KEY);
+        if (!guardado) {
+            cuponAplicado = null;
+            return;
+        }
+        const datos = JSON.parse(guardado);
+        if (datos && datos.codigo && datos.tipo && datos.valor) {
+            cuponAplicado = datos;
+        } else {
+            cuponAplicado = null;
+            localStorage.removeItem(CUPON_KEY);
+        }
+    } catch (error) {
+        console.warn("Cupón inválido.", error);
+        cuponAplicado = null;
+        localStorage.removeItem(CUPON_KEY);
+    }
+}
+
 function calcularDescuento(total) {
     if (!cuponAplicado) return 0;
+
+    /* Si el carrito ya no alcanza el mínimo requerido, el cupón deja de aplicar */
+    if (total < cuponAplicado.minimo) {
+        return 0;
+    }
 
     if (cuponAplicado.tipo === "porcentaje") {
         return total * (cuponAplicado.valor / 100);
@@ -997,3 +1199,47 @@ function registrarServiceWorker() {
         });
     }
 }
+/* =========================================================
+   IMPRESIÓN — Generar número de pedido y fecha
+   ========================================================= */
+
+function prepararComprobanteImpresion() {
+    const numeroEl = document.getElementById("printOrderNumber");
+    const fechaEl = document.getElementById("printOrderDate");
+
+    if (!numeroEl || !fechaEl) return;
+
+    /* Número de pedido: basado en timestamp, formato LDR-YYYYMMDD-XXXX */
+    const ahora = new Date();
+    const yyyy = ahora.getFullYear();
+    const mm = String(ahora.getMonth() + 1).padStart(2, "0");
+    const dd = String(ahora.getDate()).padStart(2, "0");
+    const random = String(Math.floor(Math.random() * 9000) + 1000);
+
+    numeroEl.textContent = `LDR-${yyyy}${mm}${dd}-${random}`;
+
+    /* Fecha legible en español */
+    const fecha = ahora.toLocaleDateString("es-PE", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+    const hora = ahora.toLocaleTimeString("es-PE", {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+
+    fechaEl.textContent = `${fecha} · ${hora}`;
+}
+
+/* Registrar el hook antes de imprimir */
+window.addEventListener("beforeprint", prepararComprobanteImpresion);
+
+/* También prepararlo cuando el usuario haga click en el botón de enviar
+   (así el número queda registrado antes de abrir WhatsApp) */
+document.addEventListener("DOMContentLoaded", () => {
+    const enviarBtn = document.querySelector(".whatsapp-btn");
+    if (enviarBtn) {
+        enviarBtn.addEventListener("click", prepararComprobanteImpresion);
+    }
+});

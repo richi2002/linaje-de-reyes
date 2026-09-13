@@ -12,11 +12,19 @@
     <meta name="language" content="Spanish">
     <meta name="author" content="LINAJE DE REYES">
     <meta property="og:title" content="Producto | LINAJE DE REYES">
-    <meta property="og:description" content="Una tradición que nació en el Callao. Más de 20 años de historia.">
-    <meta property="og:type" content="product">
-    <meta property="og:url" content="https://richi2002.github.io/linaje-de-reyes/producto.html">
-    <meta property="og:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
-    <meta name="twitter:card" content="summary_large_image">
+<meta property="og:description" content="Una tradición que nació en el Callao. Más de 20 años de historia.">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://richi2002.github.io/linaje-de-reyes/producto.html">
+<meta property="og:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Producto de LINAJE DE REYES">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="LINAJE DE REYES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Producto | LINAJE DE REYES">
+<meta name="twitter:description" content="Una tradición que nació en el Callao. Más de 20 años de historia.">
+<meta name="twitter:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
     <link rel="canonical" href="https://richi2002.github.io/linaje-de-reyes/producto.html">
 
     <!-- FAVICON -->
@@ -29,8 +37,19 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Preload del logo (mejora el FCP) -->
+    <link rel="preload" as="image" href="./logo.png" type="image/png">
+
+    <!-- Carga asíncrona de fuentes (no bloquea el renderizado) -->
+    <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+    </noscript>
+    
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./producto.css">
 </head>
@@ -53,6 +72,7 @@
             <a href="./index.html#historia">Nuestra historia</a>
             <a href="./index.html#nosotros">¿Por qué nosotros?</a>
             <a href="./index.html#contacto">Contacto</a>
+            <a href="./index.html#faq">Preguntas</a>
             <a href="./index.html#pedido" class="nav-order">Hacer pedido</a>
         </nav>
 
@@ -60,7 +80,7 @@
             <span class="theme-icon">🌙</span>
         </button>
 
-        <button class="menu-btn" id="productoMenuBtn" aria-label="Abrir menú" type="button">☰</button>
+        <button class="menu-btn" id="productoMenuBtn" aria-label="Abrir menú" aria-expanded="false" type="button">☰</button>
     </div>
 </header>
 

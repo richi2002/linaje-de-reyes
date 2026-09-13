@@ -948,3 +948,59 @@
 
     outline-offset: 3px;
 }
+/* =========================================================
+   FONDOS DE PRODUCTO POR CATEGORÍA
+   (Aplicadas desde producto.js con getProductBgClassProducto)
+   ========================================================= */
+
+.product-image.bread-product,
+.bread-product {
+    background:
+        radial-gradient(circle at 25% 20%, rgba(201, 164, 92, 0.24), transparent 32%),
+        radial-gradient(circle at 80% 80%, rgba(23, 37, 54, 0.14), transparent 35%),
+        linear-gradient(145deg, #EDE1CF, #FAF6EE 52%, #D5C09A);
+}
+
+.product-image.cake-product,
+.cake-product {
+    background:
+        radial-gradient(circle at 25% 20%, rgba(201, 164, 92, 0.22), transparent 32%),
+        radial-gradient(circle at 80% 80%, rgba(23, 37, 54, 0.12), transparent 35%),
+        linear-gradient(145deg, #E8D7C7, #FAF6EE 52%, #BCA58E);
+}
+
+.product-image.dessert-product,
+.dessert-product {
+    background:
+        radial-gradient(circle at 25% 20%, rgba(201, 164, 92, 0.22), transparent 32%),
+        radial-gradient(circle at 80% 80%, rgba(23, 37, 54, 0.12), transparent 35%),
+        linear-gradient(145deg, #EADFD3, #FAF6EE 52%, #C2AD99);
+}
+
+.product-image.custom-product,
+.custom-product {
+    background:
+        radial-gradient(circle at 25% 20%, rgba(201, 164, 92, 0.22), transparent 32%),
+        radial-gradient(circle at 80% 80%, rgba(23, 37, 54, 0.12), transparent 35%),
+        linear-gradient(145deg, #D9D8D0, #FAF6EE 52%, #8F9AA1);
+}
+
+.product-image.cookie-product,
+.cookie-product {
+    background:
+        radial-gradient(circle at 25% 20%, rgba(201, 164, 92, 0.22), transparent 32%),
+        radial-gradient(circle at 80% 80%, rgba(23, 37, 54, 0.12), transparent 35%),
+        linear-gradient(145deg, #E2C59E, #FAF6EE 52%, #A98960);
+}
+
+/* Modo oscuro: fondos atenuados */
+[data-theme="dark"] .product-image.bread-product,
+[data-theme="dark"] .product-image.cake-product,
+[data-theme="dark"] .product-image.dessert-product,
+[data-theme="dark"] .product-image.custom-product,
+[data-theme="dark"] .product-image.cookie-product {
+    background:
+        radial-gradient(circle at 25% 20%, rgba(232, 201, 143, 0.15), transparent 32%),
+        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.4), transparent 35%),
+        linear-gradient(145deg, #1c2f4b, #152238 52%, #0a1424);
+}
