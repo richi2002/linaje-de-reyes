@@ -10,26 +10,30 @@
     <!-- SEO -->
     <meta name="robots" content="index, follow">
     <meta name="language" content="Spanish">
-<meta property="og:title" content="Catálogo | LINAJE DE REYES">
-<meta property="og:description" content="Panes, postres, pasteles, tortas y bebidas. Una tradición que nació en el Callao.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://richi2002.github.io/linaje-de-reyes/catalogo.html">
-<meta property="og:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
-<meta property="og:image:width" content="512">
-<meta property="og:image:height" content="512">
-<meta property="og:image:alt" content="Catálogo de productos de LINAJE DE REYES">
-<meta property="og:locale" content="es_PE">
-<meta property="og:site_name" content="LINAJE DE REYES">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Catálogo | LINAJE DE REYES">
-<meta name="twitter:description" content="Panes, postres, pasteles, tortas y bebidas. Una tradición que nació en el Callao.">
-<meta name="twitter:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
+    <meta name="author" content="LINAJE DE REYES">
+    <meta property="og:title" content="Catálogo | LINAJE DE REYES">
+    <meta property="og:description" content="Panes, postres, pasteles, tortas y bebidas. Una tradición que nació en el Callao.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://richi2002.github.io/linaje-de-reyes/catalogo.html">
+    <meta property="og:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="Catálogo de productos de LINAJE DE REYES">
+    <meta property="og:locale" content="es_PE">
+    <meta property="og:site_name" content="LINAJE DE REYES">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catálogo | LINAJE DE REYES">
+    <meta name="twitter:description" content="Panes, postres, pasteles, tortas y bebidas. Una tradición que nació en el Callao.">
+    <meta name="twitter:image" content="https://richi2002.github.io/linaje-de-reyes/logo.png">
     <link rel="canonical" href="https://richi2002.github.io/linaje-de-reyes/catalogo.html">
+
+    <!-- SEGURIDAD -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="./logo.png">
-    <link rel="apple-touch-icon" href="./logo.png">
-
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
     <!-- PWA -->
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#172536">
@@ -40,15 +44,19 @@
     <!-- Preload del logo (mejora el FCP) -->
     <link rel="preload" as="image" href="./logo.png" type="image/png">
 
-    <!-- Carga asíncrona de fuentes (no bloquea el renderizado) -->
+    <!-- Preload del CSS crítico -->
+    <link rel="preload" as="style" href="./style.css">
+    <link rel="preload" as="style" href="./catalogo.css">
+
+    <!-- Carga asíncrona de fuentes -->
     <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap"
     onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
     <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap">
     </noscript>
-    
+
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./catalogo.css">
 </head>
@@ -78,7 +86,7 @@
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
             <span class="theme-icon">🌙</span>
         </button>
-        <button class="menu-btn" id="catalogMenuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>    
+        <button class="menu-btn" id="catalogMenuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
     </div>
 </header>
 
@@ -113,10 +121,10 @@
             </div>
         </div>
 
-        <div class="catalog-categories" role="group" aria-label="Filtrar productos por categoría">                
+        <div class="catalog-categories" role="group" aria-label="Filtrar productos por categoría">
             <button class="catalog-filter active" data-category="todos" aria-pressed="true"><span>✦</span> Todos</button>
             <button class="catalog-filter" data-category="panaderia" aria-pressed="false"><span>🥖</span> Panadería</button>
-            <button class="catalog-filter" data-category="pasteleria" aria-pressed="false"><span>🍰</span> Pastelería</button>                
+            <button class="catalog-filter" data-category="pasteleria" aria-pressed="false"><span>🍰</span> Pastelería</button>
             <button class="catalog-filter" data-category="postres" aria-pressed="false"><span>🍮</span> Postres</button>
             <button class="catalog-filter" data-category="tortas" aria-pressed="false"><span>🎂</span> Tortas</button>
             <button class="catalog-filter" data-category="bebidas" aria-pressed="false"><span>☕</span> Bebidas</button>
@@ -128,16 +136,16 @@
         </div>
 
         <div id="noProducts" class="no-products">
-        <span>🔎</span>
+            <span>🔎</span>
             <h3>No encontramos ese producto</h3>
             <p>Prueba con otro nombre o categoría.</p>
         </div>
 
-<div id="noFavorites" class="no-products">
-    <span>❤️</span>
-    <h3>Aún no tienes favoritos</h3>
-    <p>Marca productos con el corazón para guardarlos aquí.</p>
-</div>
+        <div id="noFavorites" class="no-products">
+            <span>❤️</span>
+            <h3>Aún no tienes favoritos</h3>
+            <p>Marca productos con el corazón para guardarlos aquí.</p>
+        </div>
 
         <div class="catalog-note">
             <span>ⓘ</span>
@@ -164,8 +172,8 @@
 <!-- ================= TOAST ================= -->
 <div id="catalogToast" class="toast" role="status" aria-live="polite">Producto agregado</div>
 
-<script src="./script.js"></script>
-<script src="./catalogo.js"></script>
+<script src="./script.js" defer></script>
+<script src="./catalogo.js" defer></script>
 
 </body>
 </html>

@@ -703,25 +703,25 @@ function crearCarritoFlotante() {
 
         <div id="cartDrawer" class="cart-drawer" aria-hidden="true">
             <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
-            <aside class="cart-drawer-panel" role="dialog" aria-modal="true" aria-label="Carrito de compras">
-                <div class="cart-drawer-header">
-                    <div>
-                        <span class="drawer-eyebrow">LINAJE DE REYES</span>
-                        <h2>Tu pedido</h2>
-                    </div>
-                    <button type="button" class="cart-drawer-close" id="cartDrawerClose" aria-label="Cerrar carrito">×</button>
-                </div>
-                <div id="drawerCartItems" class="cart-drawer-items"></div>
-                <div class="cart-drawer-footer">
-                    <div class="drawer-total-row">
-                        <span>Total</span>
-                        <strong id="drawerCartTotal">S/ 0.00</strong>
-                    </div>
-                    <button type="button" class="drawer-order-btn" id="drawerOrderBtn">Continuar con mi pedido</button>
-                    <button type="button" class="drawer-catalog-btn" id="drawerCatalogBtn">Seguir comprando</button>
-                    <button type="button" class="drawer-clear-btn" onclick="limpiarCarrito()">Vaciar carrito</button>
-                </div>
-            </aside>
+            <div class="cart-drawer-panel" role="dialog" aria-modal="true" aria-label="Carrito de compras">
+    <div class="cart-drawer-header">
+        <div>
+            <span class="drawer-eyebrow">LINAJE DE REYES</span>
+            <h2>Tu pedido</h2>
+        </div>
+        <button type="button" class="cart-drawer-close" id="cartDrawerClose" aria-label="Cerrar carrito">×</button>
+    </div>
+    <div id="drawerCartItems" class="cart-drawer-items"></div>
+    <div class="cart-drawer-footer">
+        <div class="drawer-total-row">
+            <span>Total</span>
+            <strong id="drawerCartTotal">S/ 0.00</strong>
+        </div>
+        <button type="button" class="drawer-order-btn" id="drawerOrderBtn">Continuar con mi pedido</button>
+        <button type="button" class="drawer-catalog-btn" id="drawerCatalogBtn">Seguir comprando</button>
+        <button type="button" class="drawer-clear-btn" onclick="limpiarCarrito()">Vaciar carrito</button>
+    </div>
+</div>
         </div>
     `;
 

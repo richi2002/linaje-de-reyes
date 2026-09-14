@@ -116,6 +116,19 @@ ul {
 .text-center { text-align: center; }
 .mt-4 { margin-top: 2rem; }
 
+/* Utilidad de accesibilidad: texto solo para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 
 /* =========================================================
    Z-INDEX GLOBAL
@@ -628,6 +641,12 @@ main { position: relative; z-index: 1; }
     position: relative;
     z-index: 2;
     filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3));
+    
+    /* AÑADIR: */
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 4px rgba(212, 169, 97, 0.3),
+        0 0 60px rgba(212, 169, 97, 0.4);
 }
 
 @keyframes float {
@@ -1550,7 +1569,8 @@ main { position: relative; z-index: 1; }
     background: linear-gradient(90deg, var(--champagne), var(--honey), var(--champagne));
 }
 
-.order-info-box h4 {
+/* CAMBIO: h4 → h3 */
+.order-info-box h3 {
     margin: 0 0 14px;
     color: var(--navy);
     font-size: 13px;
@@ -2139,7 +2159,8 @@ main { position: relative; z-index: 1; }
     margin-top: 30px;
 }
 
-.social-links h4 {
+/* CAMBIO: h4 → h3 */
+.social-links h3 {
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 0.15em;
@@ -3349,7 +3370,7 @@ body.cart-open {
 }
 
 /* =========================================================
-   MODO OSCURO — PRODUCTOS (tarjeta uniforme)
+   MODO OSCURO — PRODUCTOS
    ========================================================= */
 
 [data-theme="dark"] .product-card {
@@ -3670,7 +3691,8 @@ body.cart-open {
     box-shadow: var(--shadow-sm);
 }
 
-[data-theme="dark"] .order-info-box h4 {
+/* CAMBIO: h4 → h3 */
+[data-theme="dark"] .order-info-box h3 {
     color: #fff5e0;
 }
 
@@ -3830,7 +3852,8 @@ body.cart-open {
    MODO OSCURO — REDES SOCIALES
    ========================================================= */
 
-[data-theme="dark"] .social-links h4 {
+/* CAMBIO: h4 → h3 */
+[data-theme="dark"] .social-links h3 {
     color: var(--champagne-light);
 }
 
@@ -5121,18 +5144,7 @@ textarea:focus-visible {
     outline-offset: 3px;
 }
 
-/* Utilidad de accesibilidad: texto solo para lectores de pantalla */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
+
 /* =========================================================
    IMPRESIÓN — Comprobante de pedido profesional
    ========================================================= */
@@ -5300,7 +5312,7 @@ textarea:focus-visible {
     }
 
     .order-header > span:first-child {
-        display: none !important; /* ocultar emoji 🛒 */
+        display: none !important;
     }
 
     .order-header h3 {

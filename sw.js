@@ -3,7 +3,7 @@
    SERVICE WORKER - PWA
    ========================================================= */
 
-const CACHE_NAME = "linaje-de-reyes-v6";
+const CACHE_NAME = "linaje-de-reyes-v8";
 
 const ASSETS = [
     "./",
@@ -18,7 +18,11 @@ const ASSETS = [
     "./catalogo.js",
     "./producto.js",
     "./manifest.json",
-    "./logo.png"
+    "./logo.png",
+    "./logo-maskable.png",
+    "./icon-192.png",
+    "./icon-512.png",
+    "./apple-touch-icon.png"
 ];
 
 /* Instalación */
@@ -29,7 +33,7 @@ self.addEventListener("install", event => {
             .then(() => self.skipWaiting())
             .catch(err => {
                 console.error("[SW] Error crítico cacheando assets:", err);
-                throw err; /* Falla la instalación del SW → visible en DevTools */
+                throw err;
             })
     );
 });
@@ -51,7 +55,6 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
     if (event.request.method !== "GET") return;
 
-    /* Ignorar peticiones externas (Google Fonts, QR API, etc) */
     const url = new URL(event.request.url);
     if (url.origin !== location.origin) return;
 
